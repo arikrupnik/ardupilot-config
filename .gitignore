@@ -1,0 +1,10 @@
+*.rlog
+*.tlog
+*.tlog.jpg
+*.kmz
+*.log
+*.log.jpg
+*.log.gpx
+*.log.param
+*.log.xml
+*.log?wp.txt
