@@ -1,5 +1,4 @@
-# ardupilot-config
-Configurations for my fleet of ArduPilot vehicles
+# Configurations for my fleet of ArduPilot vehicles
 
 I'm learning how to configure ArduPilot, the open source autopilot.
 There are over a thousand parameters in the default configuration file; more with optional hardware.
