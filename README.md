@@ -17,19 +17,9 @@ As against that, PID values can change from flight to flight when I'm tuning the
 
 ### Global
 
-#### `arduplane-blank.param`
+* `arduplane-blank.param`: The default parameter file. This is what you get from a fresh installation of ArduPlane before any local configuration.
 
-The default parameter file.
-This is what you get from a fresh installation of ArduPlane before any local configuration.
-
-#### `taranis-rctxconfig.param`
-
-The "R/C calibration" for my Taranis.
-I use the same transmitter model memory for all my ArduPilot airframes.
-With an autopilot, the transmitter only needs send control inputs (Aileron, Elevator, etc.).
-Configuration for control mixing, servo reversal and travel, etc. lives on the autopilot.
-I do reverse the elevator in my Taranis configuration to match ArduPilot's default.
-This way, I can leave all `RCx_REVERSED` parameters at their default `0` value.
+* `taranis-rctxconfig.param`: The "R/C calibration" for my Taranis. I use the same transmitter model memory for all my ArduPilot airframes. With an autopilot, the transmitter only needs send control inputs (Aileron, Elevator, etc.). Configuration for control mixing, servo reversal and travel, etc. lives on the autopilot. I do reverse the elevator in my Taranis configuration to match ArduPilot's default. This way, I can leave all `RCx_REVERSED` parameters at their default `0` value.
 
 ### Airframe-type specific
 
