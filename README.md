@@ -36,25 +36,16 @@ This way, I can leave all `RCx_REVERSED` parameters at their default `0` value.
 For each airframe type, I make several configuration files.
 If I build another airframe of the same type, the configuration carries over.
 
-#### outputs-config.param
-
-Servo, notification buzzer setup.
-
-#### sensor-config.param
-
-Which compass to use, which IMUs are on board, battery monitor, airspeed sensor.
-
-#### fc-config.param
-
-Flight controller configuration.
-PID loops, yaw damper, NAVL1 loop, Waypoint radius.
+* `outputs-config.param`: Servo, notification buzzer setup.
+* `sensor-config.param`: Which compass to use, which IMUs are on board, battery monitor, airspeed sensor.
+* `fc-config.param`: Flight controller configuration. PID loops, yaw damper, NAVL1 loop, Waypoint radius.
 
 ### Airframe-specific
 
 For each individual airframe, I make several calibration files.
 If I build another airframe of the same type, or rebuild one after a bad crash, calibration is specific to this airframe.
 
-#### sensor-calib.param
+* `sensor-calib.param`: AHRS, compass, airspeed
 
 
 ### Bixler
