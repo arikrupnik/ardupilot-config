@@ -29,5 +29,7 @@ SERVO6_MAX,1900
 SERVO6_MIN,1100
 SERVO6_REVERSED,1
 SERVO6_TRIM,1500
-# buzzer
+# buzzer volume 5%
 NTF_BUZZ_VOLUME,5
+# low intensity LED display
+NTF_LED_BRIGHT,1
