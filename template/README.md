@@ -1,0 +1,1 @@
+`ardupilot-config/template/*.param`: default parameters for new airframes
