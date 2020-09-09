@@ -1,0 +1,3 @@
+# this is the default ID for a blank installation of ArduPilot
+# to avoid confusion, I recommend changing this parameter immediately for a new airframe
+SYSID_THISMAV,3
