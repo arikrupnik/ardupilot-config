@@ -8,3 +8,5 @@
 *.log.param
 *.log.xml
 *.log?wp.txt
+
+dl.param*
