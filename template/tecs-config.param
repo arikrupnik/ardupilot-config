@@ -7,7 +7,7 @@ ARSPD_FBW_MIN,9
 # default cruise airspeed somewhat above stall
 TRIM_ARSPD_CM,1200
 TRIM_THROTTLE,45
-# what controls speed: 0.0=throttle 2.0 pitch
+# what controls speed: 0.0=throttle 2.0=pitch
 TECS_SPDWEIGHT,1
 # documentation recommends setting these parameters manually
 TECS_CLMB_MAX,5
