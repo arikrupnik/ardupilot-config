@@ -9,6 +9,9 @@ COMPASS_USE2,1
 # accelerometers
 INS_ACC_ID,2621706
 INS_ACC2_ID,2688010
+# these discussions shed some light on the following two parameters:
+# https://discuss.ardupilot.org/t/ins-trim-option-question/16163
+# https://discuss.ardupilot.org/t/issues-for-a-persistent-perfect-level-accel-calibration-autotrim-save-trim/34189
 INS_ACC_BODYFIX,2
 INS_TRIM_OPTION,1
 # gyroscopes
