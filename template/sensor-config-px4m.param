@@ -23,6 +23,9 @@ INS_USE2,1
 SERIAL3_BAUD,38
 SERIAL3_OPTIONS,0
 SERIAL3_PROTOCOL,5
+# disable safety button, missing or inaccessible in many instllations; using locking arming switch on TX instead
+BRD_SAFETYENABLE,0
+BRD_SAFETYOPTION,0
 # Holybro PM06 power module
 BATT_AMP_OFFSET,0
 BATT_AMP_PERVLT,36.364
@@ -41,9 +44,6 @@ BATT_MONITOR,0
 BATT_VOLT_MULT,18.182
 BATT_VOLT_PIN,0
 BATT_WATT_MAX,0
-# disable safety button, missing or inaccessible in many instllations; using locking arming switch on TX instead
-BRD_SAFETYENABLE,0
-BRD_SAFETYOPTION,0
 # battery (does this want to be in a separate file?)
 BATT_CAPACITY,2200
 BATT_SERIAL_NUM,-1

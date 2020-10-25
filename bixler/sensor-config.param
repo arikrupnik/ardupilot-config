@@ -23,6 +23,9 @@ INS_USE2,1
 SERIAL3_BAUD,38
 SERIAL3_OPTIONS,0
 SERIAL3_PROTOCOL,5
+# disable safety button; using locking arming switch on TX instead
+BRD_SAFETYENABLE,0
+BRD_SAFETYOPTION,0
 # Holybro PM06 power module
 BATT_AMP_OFFSET,0
 BATT_AMP_PERVLT,36.364
