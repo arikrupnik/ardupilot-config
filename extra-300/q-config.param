@@ -3,9 +3,9 @@
 Q_ENABLE,1
 # basic configuration
 # 10=tailsitter
-Q_FRAME_CLASS,1
+Q_FRAME_CLASS,10
 # relevant only for quads
-Q_FRAME_TYPE,10
+Q_FRAME_TYPE,1
 Q_MAV_TYPE,0
 Q_OPTIONS,0
 # autotune
