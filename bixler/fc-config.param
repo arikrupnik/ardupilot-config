@@ -36,3 +36,5 @@ NAVL1_XTRACK_I,0.02
 WP_RADIUS,90
 WP_LOITER_RAD,60
 WP_MAX_RADIUS,0
+# not using terrain fllowing; disable to supress missing data error
+TERRAIN_ENABLE,0
