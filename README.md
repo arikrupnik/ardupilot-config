@@ -41,7 +41,7 @@ If I build another airframe of the same type, or rebuild one after a bad crash, 
 ### Bixler
 
 The first airframe I'm working with is a Bixler v2.
-It is a vary stable, easy to tune aircraft.
+It is a very stable, easy to tune aircraft.
 My setup is:
 
 * [Holybro Pixhawk4 Mini](http://www.holybro.com/product/pixhawk4-mini/)
