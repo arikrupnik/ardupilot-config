@@ -4,6 +4,8 @@ Q_ENABLE,1
 # basic configuration
 # 10=tailsitter
 Q_FRAME_CLASS,10
+# rudder and elevator same in horizonal and hovering modes
+Q_TAILSIT_INPUT,1
 # relevant only for quads
 Q_FRAME_TYPE,1
 Q_MAV_TYPE,0
@@ -117,7 +119,6 @@ Q_RC_SPEED,490
 Q_RTL_ALT,15
 Q_RTL_MODE,0
 Q_TAILSIT_ANGLE,45
-Q_TAILSIT_INPUT,0
 Q_TAILSIT_MASK,0
 Q_TAILSIT_MASKCH,0
 Q_TAILSIT_MOTMX,0
