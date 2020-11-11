@@ -10,3 +10,6 @@
 *.log?wp.txt
 
 dl.param*
+
+# raw mjpeg videos from onboard keychain camera
+*.AVI
