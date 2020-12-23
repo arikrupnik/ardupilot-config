@@ -1,5 +1,7 @@
 # Total Energy Control System: airspeed and altitude through pitch and throttle
+# use real airspeed...
 ARSPD_USE,1
+# ...in preference to synthetic
 TECS_SYNAIRSPEED,0
 # with stock 3S battery, Bixler seems capable of 18 m/s in evel flight
 ARSPD_FBW_MAX,18
@@ -7,7 +9,15 @@ ARSPD_FBW_MAX,18
 ARSPD_FBW_MIN,11
 # default cruise airspeed somewhat above stall
 TRIM_ARSPD_CM,1300
+# "percentage required to fly level at TRIM_ARSPD_CM"
 TRIM_THROTTLE,45
+# electric ESC can handle full range of throttle
+THR_MIN,0
+THR_MAX,100
+# up elevator to compensate for pitch-down at THR_MAX
+KFF_THR2PTCH,0
+# degrees of down pitch at THR_MAX
+STAB_PITCH_DOWN,2
 # this may want to come up higher
 TECS_SPDWEIGHT,1
 # documentation recommends setting these parameters manually
@@ -17,6 +27,7 @@ TECS_SINK_MIN,2
 # documentation recommends adjusting this if altitude oscillates
 TECS_TIME_CONST,5
 # documentation calls these out as "fine tuning"
+THR_SLEWRATE,100
 TECS_THR_DAMP,0.5
 TECS_INTEG_GAIN,0.1
 TECS_RLL2THR,10
