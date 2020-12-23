@@ -7,7 +7,7 @@
 *.log.gpx
 *.log.param
 *.log.xml
-*.log?wp.txt
+*.log*wp.txt
 
 dl.param*
 
