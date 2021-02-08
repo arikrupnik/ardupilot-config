@@ -41,9 +41,6 @@ EK2_ENABLE,1
 EK3_ENABLE,1
 AHRS_EKF_TYPE,11
 EAHRS_TYPE,1
-# disable safety button, missing or inaccessible in many instllations; using locking arming switch on TX instead
-BRD_SAFETYENABLE,0
-BRD_SAFETYOPTION,0
 # Holybro PM06 power module
 BATT_MONITOR,4
 BATT_VOLT_PIN,0

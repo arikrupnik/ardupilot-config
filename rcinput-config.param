@@ -9,6 +9,9 @@ RC7_OPTION,41
 ARMING_RUDDER,0
 # "Arming check throttle for 0 input"
 RC_OPTIONS,32
+# disable safety button, missing or inaccessible in many instllations; using locking arming switch on TX instead
+BRD_SAFETYENABLE,0
+BRD_SAFETYOPTION,0
 # with reliable (dis)arming, stop logging on disarm
 LOG_FILE_DSRMROT,1
 # 6-position flight mode switch on channel 8
