@@ -7,6 +7,8 @@ RCMAP_YAW,4
 RC7_OPTION,41
 # correspondingly, no need for (dis)arming with rudder
 ARMING_RUDDER,0
+# "Arming check throttle for 0 input"
+RC_OPTIONS,32
 # with reliable (dis)arming, stop logging on disarm
 LOG_FILE_DSRMROT,1
 # 6-position flight mode switch on channel 8

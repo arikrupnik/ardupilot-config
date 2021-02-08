@@ -1,8 +1,8 @@
-# MAVLink telemetry on SiK radio
+# MAVLink telemetry on UDP
 SERIAL1_BAUD,57
 SERIAL1_OPTIONS,0
-SERIAL1_PROTOCOL,1
-# S.PORT telemetry on FrSky RX
+SERIAL1_PROTOCOL,2
+# MAVLink telemetry on serial for Teensy converter to FrSky
 SERIAL2_BAUD,57
 SERIAL2_OPTIONS,0
-SERIAL2_PROTOCOL,10
+SERIAL2_PROTOCOL,2

@@ -1,11 +1,11 @@
 # Total Energy Control System: airspeed and altitude through pitch and throttle
-ARSPD_USE,0
+ARSPD_USE,1
 TECS_SYNAIRSPEED,0
 # airspeed envelope
 ARSPD_FBW_MAX,22
-ARSPD_FBW_MIN,9
+ARSPD_FBW_MIN,10
 # default cruise airspeed somewhat above stall
-TRIM_ARSPD_CM,1200
+TRIM_ARSPD_CM,1400
 TRIM_THROTTLE,45
 # electric ESC can handle full range of throttle
 THR_MIN,0

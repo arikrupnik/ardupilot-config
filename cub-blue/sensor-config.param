@@ -1,31 +1,46 @@
-# compass, accelerometer and gyro tyes & mounting options for PixHawk 4 Mini
+# compass, accelerometer and gyro tyes & mounting options
 # compasses
-COMPASS_DEV_ID,658945
-COMPASS_EXTERNAL,0
+## VN-300
+COMPASS_DEV_ID,14
+COMPASS_EXTERNAL,1
 COMPASS_USE,1
-COMPASS_DEV_ID2,0
+## BBBlue
+COMPASS_DEV_ID2,265233
 COMPASS_EXTERN2,0
 COMPASS_USE2,1
 # accelerometers
-INS_ACC_ID,2621706
-INS_ACC2_ID,2688010
+INS_ACC_ID,3277326
+INS_ACC2_ID,1468433
 # these discussions shed some light on the following two parameters:
 # https://discuss.ardupilot.org/t/ins-trim-option-question/16163
 # https://discuss.ardupilot.org/t/issues-for-a-persistent-perfect-level-accel-calibration-autotrim-save-trim/34189
 INS_ACC_BODYFIX,2
 INS_TRIM_OPTION,1
 # gyroscopes
-INS_GYR_ID,2621706
-INS_GYR2_ID,2687754
+INS_GYR_ID,3277070
+INS_GYR2_ID,2385937
 INS_GYR_CAL,1
 # enable all INSs; use the two available
 INS_ENABLE_MASK,127
 INS_USE,1
 INS_USE2,1
-# GPS on the default serial port
+# u-blox GPS on the default serial port
 SERIAL3_BAUD,38
 SERIAL3_OPTIONS,0
 SERIAL3_PROTOCOL,5
+# VN-300 on SERIAL4
+SERIAL4_BAUD,230400
+SERIAL4_OPTIONS,0
+SERIAL4_PROTOCOL,36
+# VN-300 is primary GPS, u-blox is secondary
+GPS_PRIMARY,0
+GPS_TYPE,21
+GPS_TYPE2,2
+# EKF, AHRS
+EK2_ENABLE,1
+EK3_ENABLE,1
+AHRS_EKF_TYPE,11
+EAHRS_TYPE,1
 # disable safety button, missing or inaccessible in many instllations; using locking arming switch on TX instead
 BRD_SAFETYENABLE,0
 BRD_SAFETYOPTION,0
@@ -33,8 +48,8 @@ BRD_SAFETYOPTION,0
 BATT_MONITOR,4
 BATT_VOLT_PIN,0
 BATT_CURR_PIN,1
-BATT_VOLT_MULT,18.182
-BATT_AMP_PERVLT,36.364
+BATT_VOLT_MULT,18.1
+BATT_AMP_PERVLT,36
 BATT_AMP_OFFSET,0
 BATT_ARM_MAH,0
 BATT_ARM_VOLT,0
@@ -48,7 +63,7 @@ BATT_LOW_TIMER,10
 BATT_LOW_VOLT,0
 BATT_WATT_MAX,0
 # battery (does this want to be in a separate file?)
-BATT_CAPACITY,2200
+BATT_CAPACITY,4000
 BATT_SERIAL_NUM,-1
 # FrSky RSSI on PPM channel 16
 RSSI_TYPE,2
