@@ -41,7 +41,9 @@ NTF_BUZZ_VOLUME,5
 NTF_LED_BRIGHT,3
 # disabling extra servos makes it easier to see unexpected changes in FC's assumptions
 SERVO7_FUNCTION,0
+# 4=aileron (left)
 SERVO8_FUNCTION,4
+SERVO8_REVERSED,1
 SERVO9_FUNCTION,0
 SERVO10_FUNCTION,0
 SERVO11_FUNCTION,0
