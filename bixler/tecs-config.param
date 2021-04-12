@@ -4,7 +4,7 @@ ARSPD_USE,1
 # ...in preference to synthetic
 TECS_SYNAIRSPEED,0
 # with stock 3S battery, Bixler seems capable of 18 m/s in evel flight
-ARSPD_FBW_MAX,18
+ARSPD_FBW_MAX,16
 # experimental observations suggest stall at 8.5 m/s; *1.3 = 11.05
 ARSPD_FBW_MIN,11
 # default cruise airspeed somewhat above stall
