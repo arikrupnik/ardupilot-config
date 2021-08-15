@@ -18,8 +18,10 @@ THR_MAX,100
 KFF_THR2PTCH,0
 # degrees of down pitch at THR_MAX
 STAB_PITCH_DOWN,2
-# this may want to come up higher
-TECS_SPDWEIGHT,1
+# 0: pitch controls altitude, throttle controls airspeed; 2: pitch controls airspeed, throttle controls altitude
+TECS_SPDWEIGHT,2
+# bit0: GliderOnly
+TECS_OPTIONS,1
 # documentation recommends setting these parameters manually
 TECS_CLMB_MAX,5
 TECS_SINK_MAX,5
@@ -37,7 +39,6 @@ TECS_VERT_ACC,7
 TECS_HGT_OMEGA,3
 TECS_SPD_OMEGA,2
 # documentation does not mention these parameters; leaving at defaults
-TECS_OPTIONS,0
 TECS_PITCH_MAX,15
 TECS_PITCH_MIN,0
 TECS_PTCH_DAMP,0
