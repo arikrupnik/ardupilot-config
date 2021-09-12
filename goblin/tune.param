@@ -49,7 +49,7 @@ YAW2SRV_SLIP,0
 #
 TRIM_THROTTLE,45
 ARSPD_FBW_MAX,28
-# this has effects even in FBWA, for stall prevention if enabled
+# this has effects even in FBWA (for stall prevention if enabled)
 ARSPD_FBW_MIN,12
 TRIM_ARSPD_CM,1200
 FBWB_CLIMB_RATE,2
