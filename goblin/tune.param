@@ -54,8 +54,6 @@ ARSPD_FBW_MIN,12
 TRIM_ARSPD_CM,1200
 FBWB_CLIMB_RATE,2
 #
-# AUTO
-#
 # tecs
 # targets (limits)
 TECS_PITCH_MAX,15
