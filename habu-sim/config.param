@@ -1,0 +1,53 @@
+# most configuration works out of the box in SITL, only a couple of parameters need adjusting
+# sysid
+SYSID_THISMAV,13
+# elevator servo reversing
+SERVO2_REVERSED,1
+# and disable EKF--relying on RF
+EK3_ENABLE,0
+#
+# FLIGHT MODES
+#
+FLTMODE1,0
+FLTMODE2,5
+FLTMODE3,6
+FLTMODE4,7
+FLTMODE5,8
+FLTMODE6,11
+#
+# FLIGHT MODE POLICIES
+#
+# FBWA
+AUTOTUNE_LEVEL,6
+# allow full roll demand at any airspeed
+STALL_PREVENTION,0
+#
+# FBWB
+TECS_SPDWEIGHT,1
+TECS_OPTIONS,0
+TECS_SYNAIRSPEED,0
+# minimum altitude for FBWB and CRUISE
+ALT_HOLD_FBWCM,0
+# throttle input controls target airspeed in auto-throttle modes
+THROTTLE_NUDGE,1
+#
+# AUTO
+# stick inputs active in auto modes
+STICK_MIXING,1
+TERRAIN_ENABLE,0
+# if I get to auto-landings
+LEVEL_ROLL_LIMIT,5
+# I think this should be 0 ("manual only")
+USE_REV_THRUST,2
+WP_LOITER_RAD,60
+WP_MAX_RADIUS,0
+WP_RADIUS,90
+#
+# RTL
+RALLY_INCL_HOME,0
+RALLY_LIMIT_KM,1
+RTL_AUTOLAND,0
+RTL_CLIMB_MIN,0
+RTL_RADIUS,0
+# altitude target for RTL (cm)
+ALT_HOLD_RTL,10000
