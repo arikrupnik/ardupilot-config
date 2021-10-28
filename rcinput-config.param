@@ -16,7 +16,7 @@ BRD_SAFETYENABLE,0
 BRD_SAFETYOPTION,0
 # with reliable (dis)arming, stop logging on disarm
 LOG_FILE_DSRMROT,1
-# 6-position flight mode switch on channel 5
+# 6-position flight mode switch on channel 5 for both copter and plane
 FLTMODE_CH,5
 # input range, direction: defaults on all channels
 RC1_DZ,30
@@ -61,6 +61,8 @@ RC7_MIN,1000
 #RC7_OPTION: see above
 RC7_REVERSED,0
 RC7_TRIM,1500
+#RC8 starter
+ICE_START_CHAN,8
 RC8_DZ,0
 RC8_MAX,2000
 RC8_MIN,1000
