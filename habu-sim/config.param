@@ -6,6 +6,24 @@ SERVO2_REVERSED,1
 # and disable EKF--relying on RF
 EK3_ENABLE,0
 #
+# OUTPUT: throttle and ignition
+#
+# throttle is passthrough; AP has no control over booster either
+SERVO3_FUNCTION,53
+# ignition--ICE functionality is almost good enough to control JATO start
+ICE_ENABLE,1
+ICE_START_CHAN,8
+# leave throttle at idle during start
+ICE_START_PCT,0
+# ironically, ignition (67) is a closer match for this use case than starter (69)
+# both work only when armed
+# starter runs on a timer
+# ignition stays on as long as START_CHAN is high and goes low when it goes low
+# this is a side effect of START_CHAN with only two input states
+SERVO8_FUNCTION,67
+#
+ARSPD_USE,1
+#
 # FLIGHT MODES
 #
 FLTMODE1,0
@@ -23,13 +41,13 @@ AUTOTUNE_LEVEL,6
 STALL_PREVENTION,0
 #
 # FBWB
-TECS_SPDWEIGHT,1
-TECS_OPTIONS,0
+TECS_SPDWEIGHT,2
+TECS_OPTIONS,1
 TECS_SYNAIRSPEED,0
 # minimum altitude for FBWB and CRUISE
 ALT_HOLD_FBWCM,0
 # throttle input controls target airspeed in auto-throttle modes
-THROTTLE_NUDGE,1
+THROTTLE_NUDGE,0
 #
 # AUTO
 # stick inputs active in auto modes
