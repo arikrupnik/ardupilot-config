@@ -1,0 +1,63 @@
+# RadJet800
+# sysid
+SYSID_THISMAV,14
+#
+# OUTPUT: throttle and ignition
+#
+# ignition stays on as long as START_CHAN is high and goes low when it goes low
+# this is a side effect of START_CHAN with only two input states
+SERVO3_FUNCTION,67
+# ignition--ICE functionality is almost good enough to control JATO start
+ICE_ENABLE,1
+ICE_START_CHAN,8
+# leave throttle at idle during start
+ICE_START_PCT,0
+#
+# for now, no airspeed sensor
+ARSPD_USE,0
+#
+# FLIGHT MODES
+#
+FLTMODE1,0
+FLTMODE2,5
+FLTMODE3,8
+FLTMODE4,6
+FLTMODE5,12
+FLTMODE6,11
+#
+# FLIGHT MODE POLICIES
+#
+# FBWA
+AUTOTUNE_LEVEL,6
+# allow full roll demand at any airspeed
+STALL_PREVENTION,0
+#
+# FBWB
+TECS_SPDWEIGHT,1
+TECS_OPTIONS,0
+TECS_SYNAIRSPEED,0
+# minimum altitude for FBWB and CRUISE
+ALT_HOLD_FBWCM,0
+# throttle input controls target airspeed in auto-throttle modes
+THROTTLE_NUDGE,1
+#
+# AUTO
+# stick inputs active in auto modes
+STICK_MIXING,1
+TERRAIN_ENABLE,0
+# if I get to auto-landings
+LEVEL_ROLL_LIMIT,5
+# I think this should be 0 ("manual only")
+USE_REV_THRUST,2
+WP_LOITER_RAD,60
+WP_MAX_RADIUS,0
+WP_RADIUS,90
+#
+# RTL
+RALLY_INCL_HOME,0
+RALLY_LIMIT_KM,2
+RTL_AUTOLAND,0
+RTL_CLIMB_MIN,0
+RTL_RADIUS,0
+# altitude target for RTL (cm)
+ALT_HOLD_RTL,10000
