@@ -2,8 +2,36 @@
 # sysid
 SYSID_THISMAV,14
 #
-# OUTPUT: throttle and ignition
+# board installation tolerance
+AHRS_TRIM_X,0.045
+AHRS_TRIM_Y,-0.05
+# board is forward of CG
+INS_POS1_X,0.18
+INS_POS1_Y,0
+INS_POS1_Z,0
 #
+# battery--analog, voltage only
+BATT_MONITOR,3
+BATT_VOLT_PIN,12
+BATT_VOLT_MULT,11
+#
+# OUTPUT
+# right elevon
+SERVO1_FUNCTION,78
+SERVO1_MAX,2000
+SERVO1_TRIM,1500
+SERVO1_MIN,1000
+SERVO1_REVERSED,1
+# left elevon
+SERVO2_FUNCTION,77
+SERVO2_MAX,2000
+SERVO2_TRIM,1500
+SERVO2_MIN,1000
+SERVO2_REVERSED,0
+# elevon mixing
+MIXING_GAIN,0.85
+MIXING_OFFSET,0
+# throttle and ignition
 # ignition stays on as long as START_CHAN is high and goes low when it goes low
 # this is a side effect of START_CHAN with only two input states
 SERVO3_FUNCTION,67
