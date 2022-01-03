@@ -32,3 +32,9 @@ For each airframe, I make two files:
   * PIDF values
   * TECS values including target airspeeds
   * Navigation controller tuning
+
+### Odds and Ends:
+
+* `Santa Clara County Model Aircraft Skypark North_AP.RFX`: a modification to the stock RealFlight airfield that aligns correctly with North, for use with ArduPilot simulations in RF.
+* `update-from-dl.sh`: Mission Planner downloads all parameter into a single, flat file. This utility updates different `.param` files from this single download.
+* `opentx-config`: copies of model and radio configurations from my TX.
