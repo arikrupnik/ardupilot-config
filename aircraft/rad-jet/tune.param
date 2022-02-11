@@ -5,8 +5,11 @@
 LIM_ROLL_CD,6000
 LIM_PITCH_MAX,2000
 LIM_PITCH_MIN,-2500
+# "Degrees of down pitch added when throttle is below TRIM_THROTTLE"
 STAB_PITCH_DOWN,3
+# "Offset applied to AHRS pitch used for in-flight pitch trimming. Correct ground leveling is better than changing this parameter."
 TRIM_PITCH_CD,0
+# "Pitch up to add in proportion to throttle. 100% throttle will add this number of degrees to the pitch target."
 KFF_THR2PTCH,0
 # pids
 # roll
