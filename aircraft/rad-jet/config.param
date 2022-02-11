@@ -18,8 +18,8 @@ SERIAL4_PROTOCOL,5
 # Roll_180
 AHRS_ORIENTATION,8
 # board installation tolerance
-AHRS_TRIM_X,0.0
-AHRS_TRIM_Y,0.0
+AHRS_TRIM_X,-0.025
+AHRS_TRIM_Y,0
 # board is forward of CG
 INS_POS1_X,0.12
 INS_POS1_Y,0
