@@ -1,0 +1,17 @@
+# I care only about local configuration and exclude the heavy, replaceable binaries
+
+FIRMWARE
+# IMAGES (pictures of individual models as well as `splash.png`)
+LOGS
+# MODELS (settings for individual models, AP is `model1.bin`)
+# RADIO (hw configuration for the radio (calibration, switch names) and model categories)
+SCRIPTS
+SOUNDS
+THEMES
+UTILITIES
+WIDGETS
+#opentx.sdcard.version
+
+# now these are just parasites
+System Volume Information
+.Trash-*

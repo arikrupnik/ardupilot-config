@@ -16,41 +16,25 @@ As against that, PID values can change from flight to flight when I'm tuning the
 
 ### Global
 
-* `arduplane-blank.param`: The default parameter file. This is what you get from a fresh installation of ArduPlane before any local configuration.
-
-* `rctxconfig.param`: "R/C calibration" and input configuration. I use the same transmitter model memory for all my ArduPilot airframes. With an autopilot, the transmitter only needs send control inputs (Aileron, Elevator, etc.). Configuration for control mixing, servo reversal and travel, etc. lives on the autopilot. This file also configures which channel controls flight modes, which is the arming switch, etc.
-
-### Airframe-type specific
-
-For each airframe type, I make several configuration files.
-If I build another airframe of the same type, the configuration carries over.
-
-* `outputs-config.param`: Servo, notification buzzer setup.
-* `sensor-config.param`: Which compass to use, which IMUs are on board, battery monitor, airspeed sensor.
-* `fc-config.param`: Flight controller configuration. PID loops, yaw damper, NAVL1 loop, Waypoint radius.
-* `telemetry-config.param`: radio telemetry: SiK, s.port.
+* `rcinput-config.param`: "R/C calibration" and input configuration. I use the same transmitter model memory for all my ArduPilot airframes. With an autopilot, the transmitter only needs send control inputs (Aileron, Elevator, etc.). Configuration for control mixing, servo reversal and travel, etc. lives on the autopilot. This file also configures which channel controls flight modes, which is the arming switch, etc.
 
 ### Airframe-specific
 
-For each individual airframe, I make several calibration files.
-If I build another airframe of the same type, or rebuild one after a bad crash, calibration is specific to this airframe.
+For each airframe, I make two files:
 
-* `sysid-config.param`: The MAVLink identity of this airframe.
-* `sensor-calib.param`: AHRS, compass, airspeed.
+* `config.param`: settings that reflect decisions about the aircraft. These are decisions I make at the bench and include:
+  * INS orientation
+  * servo functions
+  * sensor connections
+  * `SYSID_THISMAV`
+    * this controls where Mission Planner stored the logs it downloads
+* `tune.param`: settings that reflect flight performance of the aircraft, including
+  * PIDF values
+  * TECS values including target airspeeds
+  * Navigation controller tuning
 
-### Bixler
+### Odds and Ends:
 
-The first airframe I'm working with is a Bixler v2.
-It is a very stable, easy to tune aircraft.
-My setup is:
-
-* [Holybro Pixhawk4 Mini](http://www.holybro.com/product/pixhawk4-mini/)
-* [Holybro Power Module PM06](http://www.holybro.com/product/micro-power-module-pm06/)
-* [Holybro GPS Module](http://www.holybro.com/product/pixhawk-4-gps-module/)
-* [Holybro 4525DO Airspeed Sensor](http://www.holybro.com/product/digital-air-speed-sensor/)
-* [mRo 915 MHz Telemetry Radio](https://store.mrobotics.io/mRo-SiK-Telemetry-Radio-V2-915Mhz-p/mro-sikv2.htm)
-* [FrSky R-XSR S.Bus Receiver](https://www.frsky-rc.com/product/r-xsr/)
-* [Yaapu Telemetry Adapter](https://www.amazon.com/Telemetry-Converter-Pixhawk-Taranis-Receiver/dp/B07KJFWTCB)
-
-<!--  LocalWords:  arduplane ArduPlane Airframe airframe
- -->
+* `Santa Clara County Model Aircraft Skypark North_AP.RFX`: a modification to the stock RealFlight airfield that aligns correctly with North, for use with ArduPilot simulations in RF.
+* `update-from-dl.sh`: Mission Planner downloads all parameter into a single, flat file. This utility updates different `.param` files from this single download.
+* `opentx-config`: copies of model and radio configurations from my TX.
