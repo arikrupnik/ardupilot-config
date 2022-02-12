@@ -76,13 +76,13 @@ AUTOTUNE_LEVEL,6
 STALL_PREVENTION,0
 #
 # FBWB
-TECS_SPDWEIGHT,1
-TECS_OPTIONS,0
-TECS_SYNAIRSPEED,0
+TECS_SPDWEIGHT,2
+TECS_OPTIONS,1
+TECS_SYNAIRSPEED,1
 # minimum altitude for FBWB and CRUISE
 ALT_HOLD_FBWCM,0
 # throttle input controls target airspeed in auto-throttle modes
-THROTTLE_NUDGE,1
+THROTTLE_NUDGE,0
 #
 # AUTO
 # stick inputs active in auto modes
