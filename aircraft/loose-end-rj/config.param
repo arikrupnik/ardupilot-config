@@ -1,0 +1,97 @@
+# Loose End fuselage with RadJet800 wings and 24mm MMT
+# sysid
+SYSID_THISMAV,15
+#
+SERIAL0_PROTOCOL,2
+# GPS 
+SERIAL3_PROTOCOL,5
+SERIAL3_OPTIONS,0
+# FrSky telemetry with onboard inverter (options=7)
+SERIAL6_PROTOCOL,10
+SERIAL6_OPTIONS,7
+# Yaw90
+AHRS_ORIENTATION,2
+#
+# battery--analog, voltage & current
+BATT_MONITOR,4
+BATT_VOLT_PIN,10
+BATT_VOLT_MULT,11
+BATT_CURR_PIN,11
+BATT_AMP_PERVLT,40
+BATT_CAPACITY,350
+# battery 2: analog, voltage only, for igniter continuity
+BATT2_MONITOR,4
+BATT2_VOLT_PIN,7
+BATT2_VOLT_MULT,11
+BATT2_CURR_PIN,7
+BATT2_AMP_PERVLT,40
+BATT2_CAPACITY,1100
+#
+# OUTPUT
+# right elevon
+SERVO10_FUNCTION,78
+SERVO10_MAX,2000
+SERVO10_TRIM,1500
+SERVO10_MIN,1000
+SERVO10_REVERSED,0
+# left elevon
+SERVO2_FUNCTION,77
+SERVO2_MAX,2000
+SERVO2_TRIM,1500
+SERVO2_MIN,1000
+SERVO2_REVERSED,0
+# elevon mixing
+MIXING_GAIN,0.85
+MIXING_OFFSET,0
+# ignition: stays on as long as START_CHAN is high and goes low when it goes low
+# this is a side effect of START_CHAN with only two input states
+SERVO6_FUNCTION,67
+#
+# for now, no airspeed sensor
+ARSPD_USE,0
+#
+# FLIGHT MODES
+#
+FLTMODE1,0
+FLTMODE2,5
+FLTMODE3,6
+FLTMODE4,4
+FLTMODE5,12
+FLTMODE6,11
+#
+# FLIGHT MODE POLICIES
+#
+# FBWA
+AUTOTUNE_LEVEL,6
+# allow full roll demand at any airspeed
+STALL_PREVENTION,0
+#
+# FBWB
+TECS_SPDWEIGHT,2
+TECS_OPTIONS,1
+TECS_SYNAIRSPEED,1
+# minimum altitude for FBWB and CRUISE
+ALT_HOLD_FBWCM,0
+# throttle input controls target airspeed in auto-throttle modes
+THROTTLE_NUDGE,0
+#
+# AUTO
+# stick inputs active in auto modes
+STICK_MIXING,1
+TERRAIN_ENABLE,0
+# if I get to auto-landings
+LEVEL_ROLL_LIMIT,5
+# I think this should be 0 ("manual only")
+USE_REV_THRUST,2
+WP_LOITER_RAD,30
+WP_MAX_RADIUS,0
+WP_RADIUS,90
+#
+# RTL
+RALLY_INCL_HOME,0
+RALLY_LIMIT_KM,2
+RTL_AUTOLAND,0
+RTL_CLIMB_MIN,0
+RTL_RADIUS,0
+# altitude target for RTL (cm)
+ALT_HOLD_RTL,10000
