@@ -46,15 +46,9 @@ SERVO2_REVERSED,0
 # elevon mixing
 MIXING_GAIN,0.85
 MIXING_OFFSET,0
-# throttle and ignition
-# ignition stays on as long as START_CHAN is high and goes low when it goes low
+# ignition: stays on as long as START_CHAN is high and goes low when it goes low
 # this is a side effect of START_CHAN with only two input states
 SERVO3_FUNCTION,67
-# ignition--ICE functionality is almost good enough to control JATO start
-ICE_ENABLE,1
-ICE_START_CHAN,8
-# leave throttle at idle during start
-ICE_START_PCT,0
 #
 # for now, no airspeed sensor
 ARSPD_USE,0
