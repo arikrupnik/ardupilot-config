@@ -11,7 +11,7 @@ ARMING_RUDDER,0
 RC_OPTIONS,32
 # require all arming checks
 ARMING_CHECK,1
-# disable safety button, missing or inaccessible in many instllations; using locking arming switch on TX instead
+# disable safety button, missing or inaccessible in many installations; using locking arming switch on TX instead
 BRD_SAFETYENABLE,0
 BRD_SAFETYOPTION,0
 # with reliable (dis)arming, stop logging on disarm
