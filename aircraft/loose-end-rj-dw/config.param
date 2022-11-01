@@ -34,8 +34,13 @@ BATT2_VOLT_PIN,18
 BATT2_VOLT_MULT,11
 # airspeed: I2C-DLVR-20in
 ARSPD_TYPE,10
+# DLVR needs no calibration
+ARSPD_SKIP_CAL,1
+ARSPD_OFFSET,0
 # normal: dynamic: top; static: bottom
 ARSPD_TUBE_ORDER,0
+# for now, not using airspeed sensor
+ARSPD_USE,0
 #
 # OUTPUT
 # right elevon
@@ -56,9 +61,6 @@ MIXING_OFFSET,0
 # ignition: stays on as long as START_CHAN is high and goes low when it goes low
 # this is a side effect of START_CHAN with only two input states
 SERVO6_FUNCTION,67
-#
-# for now, no airspeed sensor
-ARSPD_USE,0
 #
 # FLIGHT MODES
 #
