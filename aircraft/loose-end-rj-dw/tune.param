@@ -54,7 +54,7 @@ ARSPD_FBW_MAX,12
 ARSPD_FBW_MIN,12
 TRIM_ARSPD_CM,1200
 # aisrspeed calculations depend on calibration of the sensor
-ARSPD_RATIO,5.5
+ARSPD_RATIO,4
 FBWB_CLIMB_RATE,2
 #
 # tecs
