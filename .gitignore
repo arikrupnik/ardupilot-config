@@ -4,6 +4,7 @@
 *.kmz
 *.log
 *.log.jpg
+*.bin.jpg
 *.log.gpx
 *.log.param
 *.log.xml
