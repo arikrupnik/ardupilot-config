@@ -27,11 +27,15 @@ For each airframe, I make two files:
   * servo functions
   * sensor connections
   * `SYSID_THISMAV`
-    * this controls where Mission Planner stored the logs it downloads
+    * this controls where Mission Planner stores the logs it downloads
 * `tune.param`: settings that reflect flight performance of the aircraft, including
   * PIDF values
   * TECS values including target airspeeds
   * Navigation controller tuning
+
+### Scripting
+
+I keep LUA scripts that are useful to a class of aircraft under `scripting`.
 
 ### Odds and Ends:
 
