@@ -7,6 +7,11 @@ SCR_ENABLE,1
 #
 # INPUTS
 #
+# most RC inputs are standard across my entire Ardupilot fleet and
+# live in rcinput-config.param; on gliders I force throttle to low by
+# setting it to a -MAX channel
+RCMAP_THROTTLE,16
+#
 # serial ports
 # USB console
 SERIAL0_PROTOCOL,2

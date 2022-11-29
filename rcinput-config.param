@@ -1,8 +1,3 @@
-# rc map
-RCMAP_ROLL,1
-RCMAP_PITCH,2
-RCMAP_THROTTLE,3
-RCMAP_YAW,4
 # ArmDisarm on channel 7 (locking-lever switch SE)
 RC7_OPTION,153
 # correspondingly, no need for (dis)arming with rudder
