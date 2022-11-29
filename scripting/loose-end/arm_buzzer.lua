@@ -1,4 +1,4 @@
--- armbuzz.lua: sound an external warning buzzer when ignition armed
+-- arm_buzzer.lua: sound an external warning buzzer when ignition armed
 --
 -- I want a sound when I arm ignition to warn spectators of imminent
 -- takeoff. The simple solution is to slave a buzzer to arming
@@ -13,24 +13,33 @@
 -- buzzer directly. The parameter to activate this circuit as RELAY1
 -- (0 in C++ and Lua bindings) is RELAY_PIN=81
 
+-- If a configuration is missing or inconsistent, report the error at
+-- this severity and quit
+local FAILURE_SEVERITY = 3 -- "Error: Indicates an error in secondary systems"
 
 -- no good way to determine which relay is buzzer...
 local BUZZER_RELAY_NUM = 0
 -- ...but can check that it exists
 if not relay:enabled(BUZZER_RELAY_NUM) then
-   gcs:send_text(2, "RELAY " .. tostring(BUZZER_RELAY_NUM) .. " missing, ARM buzzer unavailable")
+   gcs:send_text(
+      FAILURE_SEVERITY,
+      "RELAY " .. tostring(BUZZER_RELAY_NUM) .. " missing, ARM buzzer unavailable")
    return
 end
 
 local SERVOx_FUNCTION_IGNITION = 67
 if SRV_Channels:find_channel(SERVOx_FUNCTION_IGNITION) == nil then
-   gcs:send_text(2, "SERVOx_FUNCTION_IGNITION missing, ARM buzzer unavailable")
+   gcs:send_text(
+      FAILURE_SEVERITY,
+      "SERVOx_FUNCTION_IGNITION missing, ARM buzzer unavailable")
    return
 end
 
 local ICE_PWM_IGN_ON = param:get("ICE_PWM_IGN_ON")
 if ICE_PWM_IGN_ON == nil then
-   gcs:send_text(2, "ICE_PWM_IGN_ON parameter missing, ARM buzzer unavailable")
+   gcs:send_text(
+      FAILURE_SEVERITY,
+      "ICE_PWM_IGN_ON parameter missing, ARM buzzer unavailable")
    return
 end
 
