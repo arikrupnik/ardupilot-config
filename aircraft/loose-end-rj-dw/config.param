@@ -15,7 +15,7 @@ RCMAP_THROTTLE,16
 # serial ports
 # USB console
 SERIAL0_PROTOCOL,2
-# GPS 
+# GPS
 SERIAL3_PROTOCOL,5
 SERIAL3_OPTIONS,0
 # FrSky telemetry with onboard inverter (options=7)
