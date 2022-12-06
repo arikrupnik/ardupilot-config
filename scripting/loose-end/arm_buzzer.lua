@@ -12,50 +12,53 @@
 -- is low. The circuit provides up to 2A, enough to drive a 30mA
 -- buzzer directly. The parameter to activate this circuit as RELAY1
 -- (0 in C++ and Lua bindings) is RELAY_PIN=81
+--
+-- This script depends for its operation on `ignition.lua' to set
+-- IGNITION output. Without that script, the buzzer is on whenever
+-- motors are armed.
 
--- If a configuration is missing or inconsistent, report the error at
--- this severity and quit
-local FAILURE_SEVERITY = 3 -- "Error: Indicates an error in secondary systems"
+
+local MAV_SEVERITY = {EMERGENCY=0, ALERT=1, CRITICAL=2, ERROR=3, WARNING=4, NOTICE=5, INFO=6, DEBUG=7}
 
 -- no good way to determine which relay is buzzer...
-local BUZZER_RELAY_NUM = 0
+local BUZZER_RELAY_N = 0
 -- ...but can check that it exists
-if not relay:enabled(BUZZER_RELAY_NUM) then
+if not relay:enabled(BUZZER_RELAY_N) then
    gcs:send_text(
-      FAILURE_SEVERITY,
-      "RELAY " .. tostring(BUZZER_RELAY_NUM) .. " missing, ARM buzzer unavailable")
+      MAV_SEVERITY.ERROR,
+      string.format("RELAY %g missing, ARM buzzer unavailable", BUZZER_RELAY_N))
    return
 end
 
 local SERVOx_FUNCTION_IGNITION = 67
-if SRV_Channels:find_channel(SERVOx_FUNCTION_IGNITION) == nil then
-   gcs:send_text(
-      FAILURE_SEVERITY,
-      "SERVOx_FUNCTION_IGNITION missing, ARM buzzer unavailable")
+local IGNITION_SRV_CHANNEL_N = SRV_Channels:find_channel(SERVOx_FUNCTION_IGNITION)
+if not IGNITION_SRV_CHANNEL_N then
+   gcs:send_text(MAV_SEVERITY.ERROR, "IGNITION SRV channel missing; ARM buzzer unavailable")
    return
 end
+local IGNITION_MAX_PWM = param:get(string.format("SERVO%d_MAX", IGNITION_SRV_CHANNEL_N+1))
 
-local ICE_PWM_IGN_ON = param:get("ICE_PWM_IGN_ON")
-if ICE_PWM_IGN_ON == nil then
-   gcs:send_text(
-      FAILURE_SEVERITY,
-      "ICE_PWM_IGN_ON parameter missing, ARM buzzer unavailable")
-   return
-end
+
+gcs:send_text(MAV_SEVERITY.INFO, string.format("ARM warning buzzer on RELAY%g",
+                                               BUZZER_RELAY_N_N+1))
 
 
 function buzzer(on_off)
    -- inverted signal
    if on_off then
-      relay:off(BUZZER_RELAY_NUM)
+      relay:off(BUZZER_RELAY_N)
    else
-      relay:on(BUZZER_RELAY_NUM)
+      relay:on(BUZZER_RELAY_N)
    end
 end
 
 function ignition_on()
-   return SRV_Channels:get_output_pwm(SERVOx_FUNCTION_IGNITION) >= ICE_PWM_IGN_ON
+   -- it is safe to compare these floats for equality: they are
+   -- integers; `ignition.lua' is setting this output to the explicit
+   -- (integer) value of the parameter
+   return SRV_Channels:get_output_pwm(SERVOx_FUNCTION_IGNITION) == IGNITION_MAX_PWM
 end
+
 
 (function()
       local ignition_happened = false
