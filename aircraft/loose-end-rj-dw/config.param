@@ -7,11 +7,6 @@ SCR_ENABLE,1
 #
 # INPUTS
 #
-# most RC inputs are standard across my entire Ardupilot fleet and
-# live in rcinput-config.param; on gliders I force throttle to low by
-# setting it to a -MAX channel
-RCMAP_THROTTLE,16
-#
 # serial ports
 # USB console
 SERIAL0_PROTOCOL,2
@@ -71,6 +66,8 @@ MIXING_OFFSET,0
 SERVO6_FUNCTION,67
 # Vsw, 5V 2A pin, using for external ARM WARNING buzzer
 RELAY_PIN,81
+# Vsw signal is inverted and the only relay in use now; defaut to buzzer off
+RELAY_DEFAULT,1
 #
 # FLIGHT MODES
 #
