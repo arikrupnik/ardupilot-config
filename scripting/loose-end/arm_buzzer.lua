@@ -39,8 +39,8 @@ end
 local IGNITION_MAX_PWM = param:get(string.format("SERVO%d_MAX", IGNITION_SRV_CHANNEL_N+1))
 
 
-gcs:send_text(MAV_SEVERITY.INFO, string.format("ARM warning buzzer on RELAY%g",
-                                               BUZZER_RELAY_N_N+1))
+gcs:send_text(MAV_SEVERITY.NOTICE, string.format("ARM warning buzzer on RELAY%g",
+                                                 BUZZER_RELAY_N+1))
 
 
 function buzzer(on_off)
