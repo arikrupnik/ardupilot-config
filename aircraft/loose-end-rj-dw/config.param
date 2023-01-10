@@ -62,8 +62,7 @@ SERVO2_REVERSED,0
 # elevon mixing
 MIXING_GAIN,0.85
 MIXING_OFFSET,0
-# ignition: stays on as long as START_CHAN is high and goes low when it goes low
-# this is a side effect of START_CHAN with only two input states
+# ignition (under LUA control, ICE_ENABLE=0)
 SERVO6_FUNCTION,67
 # Vsw, 5V 2A pin, using for external ARM WARNING buzzer
 RELAY_PIN,81
