@@ -42,10 +42,13 @@ SERVO2_TRIM,1500
 SERVO2_MIN,1100
 SERVO2_REVERSED,1
 # throttle
+# ESC manual lists PWM range as 1200..1800. This is correct in the
+# sense that motor starts turning at 1200, but ECS needs to see 1150
+# to arm.
 SERVO3_FUNCTION,70
 SERVO3_MAX,1800
-SERVO3_TRIM,1200
-SERVO3_MIN,1200
+SERVO3_TRIM,1150
+SERVO3_MIN,1150
 SERVO3_REVERSED,0
 # (water) rudder
 SERVO4_FUNCTION,21
