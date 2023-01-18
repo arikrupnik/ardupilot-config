@@ -40,9 +40,9 @@ PTCH2SRV_TCONST,0.75
 # feed roll into pitch
 PTCH2SRV_RLL,1
 # yaw
-KFF_RDDRMIX,0.8
+KFF_RDDRMIX,0.9
 # yaw damper
-YAW2SRV_DAMP,0
+YAW2SRV_DAMP,0.2
 YAW2SRV_RLL,1
 # sideslip controller
 YAW2SRV_INT,0
