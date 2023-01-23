@@ -1,0 +1,92 @@
+# tuning parameters: settings that reflect flight performance of the aircraft
+#
+# FBWA
+#
+LIM_ROLL_CD,6000
+LIM_PITCH_MAX,2000
+LIM_PITCH_MIN,-2500
+# "Degrees of down pitch added when throttle is below TRIM_THROTTLE"
+STAB_PITCH_DOWN,2
+# "Offset applied to AHRS pitch used for in-flight pitch trimming. Correct ground leveling is better than changing this parameter."
+TRIM_PITCH_CD,0
+# "Pitch up to add in proportion to throttle. 100% throttle will add this number of degrees to the pitch target."
+KFF_THR2PTCH,0
+# PIDFs
+# roll
+RLL_RATE_P,0.08
+RLL_RATE_I,0.15
+RLL_RATE_D,0
+RLL_RATE_FF,0.345
+RLL_RATE_SMAX,150
+RLL_RATE_IMAX,0.666
+RLL_RATE_FLTE,0
+RLL_RATE_FLTT,3
+RLL_RATE_FLTD,12
+RLL2SRV_RMAX,0
+RLL2SRV_TCONST,0.5
+# pitch
+PTCH_RATE_P,0.04
+PTCH_RATE_I,0.15
+PTCH_RATE_D,0
+PTCH_RATE_FF,0.345
+PTCH_RATE_SMAX,150
+PTCH_RATE_IMAX,0.666
+PTCH_RATE_FLTE,0
+PTCH_RATE_FLTT,3
+PTCH_RATE_FLTD,12
+PTCH2SRV_RMAX_DN,0
+PTCH2SRV_RMAX_UP,0
+PTCH2SRV_TCONST,0.5
+# feed roll into pitch
+PTCH2SRV_RLL,1
+# yaw
+KFF_RDDRMIX,0.5
+# yaw damper
+YAW2SRV_DAMP,0
+YAW2SRV_RLL,1
+# sideslip controller
+YAW2SRV_INT,0
+YAW2SRV_SLIP,0
+YAW2SRV_IMAX,1500
+#
+# FBWB
+#
+# aisrspeed calculations depend on calibration of the sensor (4 for I2C-DLVR-20in)
+ARSPD_RATIO,4
+ARSPD_OFFSET,0
+# this has effects even in FBWA (for stall prevention if enabled)
+ARSPD_FBW_MIN,9
+ARSPD_FBW_MAX,22
+TRIM_ARSPD_CM,1200
+FBWB_CLIMB_RATE,2
+#
+# tecs
+# targets (limits)
+# use LIM_PITCH_MAX
+TECS_PITCH_MAX,0
+# use LIM_PITCH_MIN
+TECS_PITCH_MIN,0
+TECS_CLMB_MAX,5
+TECS_SINK_MAX,5
+TECS_SINK_MIN,2
+TECS_VERT_ACC,7
+# pids
+TECS_TIME_CONST,5
+TECS_INTEG_GAIN,0.1
+TECS_PTCH_DAMP,0
+TECS_THR_DAMP,0.5
+# feed airspeed demand into pitch
+TECS_PTCH_FF_K,0
+TECS_PTCH_FF_V0,12
+# fuse vertical accel and baro
+TECS_HGT_OMEGA,3
+# fuse horizontal accel and airspeed
+TECS_SPD_OMEGA,2
+# feed aileron into throttle
+TECS_RLL2THR,10
+#
+# navigation
+NAVL1_DAMPING,0.75
+NAVL1_LIM_BANK,0
+NAVL1_PERIOD,17
+NAVL1_XTRACK_I,0.02

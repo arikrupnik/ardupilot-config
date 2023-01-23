@@ -1,0 +1,110 @@
+# Template config.param: parameters that represent engineering choices
+# This template is representative of my Matek-H734-WING installations
+#
+# sysid: change this first
+SYSID_THISMAV,17
+#
+# LUA Scripting
+SCR_ENABLE,0
+#
+# INPUTS
+#
+# serial ports
+# USB console
+SERIAL0_PROTOCOL,2
+# GPS
+SERIAL3_PROTOCOL,5
+SERIAL3_OPTIONS,0
+# FrSky telemetry with onboard inverter (options=7)
+SERIAL6_PROTOCOL,10
+SERIAL6_OPTIONS,7
+# None (Yaw90=2)
+AHRS_ORIENTATION,0
+#
+# battery--analog, voltage & current
+BATT_MONITOR,4
+BATT_VOLT_PIN,10
+BATT_VOLT_MULT,11
+BATT_CURR_PIN,11
+BATT_AMP_PERVLT,40
+BATT_CAPACITY,3300
+# airspeed: I2C-DLVR-20in
+ARSPD_TYPE,10
+ARSPD_BUS,1
+# DLVR needs no calibration
+ARSPD_SKIP_CAL,1
+# normal: dynamic: top; static: bottom
+ARSPD_TUBE_ORDER,0
+# not using airspeed sensor at commissioning
+ARSPD_USE,0
+#
+# expo in manual and acro mode:
+MAN_EXPO_ROLL,50
+MAN_EXPO_PITCH,50
+MAN_EXPO_RUDDER,20
+#
+# OUTPUT
+# aileron
+SERVO1_FUNCTION,78
+SERVO1_MAX,1900
+SERVO1_TRIM,1500
+SERVO1_MIN,1100
+SERVO1_REVERSED,1
+# elevator
+SERVO2_FUNCTION,77
+SERVO2_MAX,1900
+SERVO2_TRIM,1500
+SERVO2_MIN,1100
+SERVO2_REVERSED,0
+# throttle
+SERVO3_FUNCTION,70
+SERVO3_MAX,1900
+SERVO3_TRIM,1100
+SERVO3_MIN,1100
+SERVO3_REVERSED,0
+#
+# FLIGHT MODES
+#
+FLTMODE1,0
+FLTMODE2,5
+FLTMODE3,6
+FLTMODE4,4
+FLTMODE5,12
+FLTMODE6,11
+#
+# FLIGHT MODE POLICIES
+#
+# FBWA
+AUTOTUNE_LEVEL,6
+# allow full roll demand at any airspeed
+STALL_PREVENTION,0
+#
+# FBWB
+# tecs settings at default values
+TECS_SPDWEIGHT,1
+TECS_OPTIONS,0
+TECS_SYNAIRSPEED,0
+# minimum altitude for FBWB and CRUISE
+ALT_HOLD_FBWCM,0
+# throttle input controls target airspeed in auto-throttle modes
+THROTTLE_NUDGE,1
+# this much throttle (%) maintains level flight in the absence of AS sensor
+TRIM_THROTTLE,45
+#
+# AUTO
+# stick inputs active in auto modes
+STICK_MIXING,1
+#
+TERRAIN_ENABLE,0
+WP_LOITER_RAD,30
+WP_MAX_RADIUS,0
+WP_RADIUS,90
+#
+# RTL
+RALLY_INCL_HOME,0
+RALLY_LIMIT_KM,0.5
+RTL_AUTOLAND,0
+RTL_CLIMB_MIN,0
+RTL_RADIUS,0
+# altitude target for RTL (cm)
+ALT_HOLD_RTL,10000
