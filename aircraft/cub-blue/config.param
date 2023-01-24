@@ -26,7 +26,7 @@ BATT_VOLT_MULT,11
 BATT_CURR_PIN,11
 # this installation uses PM06 instead of native PDB
 BATT_AMP_PERVLT,36.3636
-BATT_CAPACITY,4000
+BATT_CAPACITY,5000
 # airspeed: I2C-MS4525D0
 ARSPD_TYPE,1
 # normal: dynamic: top; static: bottom
@@ -97,7 +97,7 @@ FLTMODE6,11
 # FLIGHT MODE POLICIES
 #
 # FBWA
-AUTOTUNE_LEVEL,6
+AUTOTUNE_LEVEL,7
 # allow full roll demand at any airspeed
 STALL_PREVENTION,0
 #
