@@ -97,7 +97,7 @@ FLTMODE6,11
 # FLIGHT MODE POLICIES
 #
 # FBWA
-AUTOTUNE_LEVEL,7
+AUTOTUNE_LEVEL,0
 # allow full roll demand at any airspeed
 STALL_PREVENTION,0
 #
