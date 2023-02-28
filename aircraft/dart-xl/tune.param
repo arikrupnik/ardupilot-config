@@ -6,7 +6,7 @@ LIM_ROLL_CD,6000
 LIM_PITCH_MAX,2000
 LIM_PITCH_MIN,-2500
 # "Degrees of down pitch added when throttle is below TRIM_THROTTLE"
-STAB_PITCH_DOWN,2
+STAB_PITCH_DOWN,2.5
 # "Offset applied to AHRS pitch used for in-flight pitch trimming. Correct ground leveling is better than changing this parameter."
 TRIM_PITCH_CD,0
 # "Pitch up to add in proportion to throttle. 100% throttle will add this number of degrees to the pitch target."
@@ -38,7 +38,7 @@ PTCH2SRV_RMAX_DN,75
 PTCH2SRV_RMAX_UP,75
 PTCH2SRV_TCONST,0.75
 # feed roll into pitch
-PTCH2SRV_RLL,1
+PTCH2SRV_RLL,1.1
 # yaw
 KFF_RDDRMIX,0.5
 # yaw damper
@@ -55,9 +55,9 @@ YAW2SRV_IMAX,1500
 ARSPD_RATIO,4
 ARSPD_OFFSET,0
 # this has effects even in FBWA (for stall prevention if enabled)
-ARSPD_FBW_MIN,9
-ARSPD_FBW_MAX,22
-TRIM_ARSPD_CM,1200
+ARSPD_FBW_MIN,10
+ARSPD_FBW_MAX,25
+TRIM_ARSPD_CM,1800
 FBWB_CLIMB_RATE,2
 #
 # tecs
