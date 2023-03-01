@@ -16,12 +16,12 @@ RC4_OPTION,0
 #RC5_OPTION,29
 # flap=208; airbrake=210 (available in Plane only)
 #RC6_OPTION,208
-# arm/disarm (locking-lever 3-position switch SE; curve 1000-1900-2000)
+# arm/disarm (locking-lever 3-position switch SE; TX curve 1000-1900-2000)
 RC7_OPTION,153
 # 6-position flight mode switch for both copter and plane
 FLTMODE_CH,8
 RC8_OPTION,0
-# autotune enable
+# autotune enable (available in Plane only; in Rover: 50 "Learn Cruise")
 RC9_OPTION,107
 # sailboat sail control=207 (available in Rover only)
 #RC10_OPTION,207
