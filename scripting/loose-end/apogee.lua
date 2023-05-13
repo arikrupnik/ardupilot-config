@@ -23,9 +23,27 @@ local BOOST_FLIGH_MODES = {
    [FLIGHT_MODE.Manual]=true,
    --[FLIGHT_MODE.FBWA]=true
 }
-local MIN_MODE_CHANGE_ALT = 100  -- meters; no automatic mode changes below this altitude
-local APOGEE_MARGIN = 15  -- meters below peak to call apogee
-local ARSPD_FBW_MAX = 25  -- TODO: read parameter
+
+local ALT_HOLD_RTL = param:get("ALT_HOLD_RTL") -- centimeters
+if ALT_HOLD_RTL == nil then
+  gcs:send_text(MAV_SEVERITY.ERROR, "ALT_HOLD_RTL param missing, auto RTL unavailable")
+  return
+end
+local MIN_MODE_CHANGE_ALT = ALT_HOLD_RTL/100   -- meters; no automatic mode changes to RTL below this altitude
+
+local APOGEE_MARGIN = MIN_MODE_CHANGE_ALT/10   -- meters below peak to call apogee
+
+-- If vehicle is traveling below this airspeed (but is above
+-- MIN_MODE_CHANGE_ALT), I transition to RTL without waiting for
+-- apogee. This means vehicle is decelerating and I can perform a more
+-- gentle transition.
+-- (this may need to come from a different airspeed, once I figure out
+-- how to make AP maintain airspeed with external thrust)
+local ARSPD_FBW_MAX = param:get("ARSPD_FBW_MAX")
+if ARSPD_FBW_MAX == nil then
+  gcs:send_text(MAV_SEVERITY.ERROR, "ARSPD_FBW_MAX param missing, auto RTL unavailable")
+  return
+end
 
 local max_altitude = 0
 local started_rtl = false
@@ -81,5 +99,9 @@ function update()
 
   return update, 100
 end
+
+gcs:send_text(MAV_SEVERITY.NOTICE, "Auto-RTL-at-apogee active")
+gcs:send_text(MAV_SEVERITY.NOTICE, string.format("Min Auto-RTL alt: %sm/s", MIN_MODE_CHANGE_ALT))
+gcs:send_text(MAV_SEVERITY.NOTICE, string.format("Min Auto-RTL transition AS: %sm", ARSPD_FBW_MAX))
 
 return update()
