@@ -16,6 +16,8 @@ local FLIGHT_MODE = {
 
 -- local constants
 
+local INTERVAL = 100
+
 -- Flight modes valid for boost phase of flight. Script transitions to
 -- RTL only from one of these modes--any other mode means pilot has
 -- already taken control of glide
@@ -60,6 +62,11 @@ end
 function update()
 
   local alt = ahrs:get_hagl()
+  if alt == nil then
+    -- AHRS has not yet acquired home position. Transitions are
+    -- impossible without knowledge of relative altitude.
+    return update, INTERVAL
+  end
   max_altitude = math.max(max_altitude, alt)
 
   -- reset statistics at launch
@@ -97,7 +104,7 @@ function update()
     end
   end
 
-  return update, 100
+  return update, INTERVAL
 end
 
 gcs:send_text(MAV_SEVERITY.NOTICE, "Auto-RTL-at-apogee active")
