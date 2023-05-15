@@ -101,7 +101,7 @@ function update()
 end
 
 gcs:send_text(MAV_SEVERITY.NOTICE, "Auto-RTL-at-apogee active")
-gcs:send_text(MAV_SEVERITY.NOTICE, string.format("Min Auto-RTL alt: %sm/s", MIN_MODE_CHANGE_ALT))
-gcs:send_text(MAV_SEVERITY.NOTICE, string.format("Min Auto-RTL transition AS: %sm", ARSPD_FBW_MAX))
+gcs:send_text(MAV_SEVERITY.NOTICE, string.format("Min Auto-RTL alt: %sm", MIN_MODE_CHANGE_ALT))
+gcs:send_text(MAV_SEVERITY.NOTICE, string.format("Min Auto-RTL transition AS: %sm/s", ARSPD_FBW_MAX))
 
 return update()
