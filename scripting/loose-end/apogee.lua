@@ -104,6 +104,14 @@ function update()
     end
   end
 
+  logger:write("RCRG", "amax,ar,amin,fm,srtl,ba", "fBBBBB", "m-----", "0-----",
+               max_altitude,
+               apogee_reported                          and 1 or 0,
+               (alt > MIN_MODE_CHANGE_ALT)              and 1 or 0,
+               (BOOST_FLIGH_MODES[vehicle:get_mode()])  and 1 or 0,
+               started_rtl                              and 1 or 0,
+               (alt < (max_altitude - APOGEE_MARGIN))   and 1 or 0)
+
   return update, INTERVAL
 end
 
