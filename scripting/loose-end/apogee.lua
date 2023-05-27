@@ -61,12 +61,15 @@ end
 
 function update()
 
-  local alt = ahrs:get_hagl()
-  if alt == nil then
+  local position = ahrs:get_position()
+  if position == nil or ahrs:get_origin() == nil then
     -- AHRS has not yet acquired home position. Transitions are
     -- impossible without knowledge of relative altitude.
+    logger:write("RCRG", "amax,ar,amin,fm,srtl,ba", "ffffff", "m-----", "0-----",
+                 0, -1, -1, -1, -1, -1)
     return update, INTERVAL
   end
+  local alt = position:get_vector_from_origin_NEU():z() / 100
   max_altitude = math.max(max_altitude, alt)
 
   -- reset statistics at launch
@@ -104,7 +107,7 @@ function update()
     end
   end
 
-  logger:write("RCRG", "amax,ar,amin,fm,srtl,ba", "fBBBBB", "m-----", "0-----",
+  logger:write("RCRG", "amax,ar,amin,fm,srtl,ba", "ffffff", "m-----", "0-----",
                max_altitude,
                apogee_reported                          and 1 or 0,
                (alt > MIN_MODE_CHANGE_ALT)              and 1 or 0,
