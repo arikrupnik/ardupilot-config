@@ -1,0 +1,75 @@
+# tune.param: parameters that reflect real-world performance of the vehicle
+#
+##########
+# FBWA
+#
+# limits
+# roll
+ROLL_LIMIT_DEG,45
+RLL2SRV_RMAX,0
+RLL2SRV_TCONST,0.5
+# pitch
+PTCH_LIM_MAX_DEG,20
+PTCH_LIM_MIN_DEG,-25
+PTCH2SRV_RMAX_DN,0
+PTCH2SRV_RMAX_UP,0
+PTCH2SRV_TCONST,0.5
+#
+# feed-forwards
+# "Degrees of down pitch added when throttle is below TRIM_THROTTLE"
+STAB_PITCH_DOWN,2
+# "Pitch up to add in proportion to throttle. 100% throttle will add this number of degrees to the pitch target."
+KFF_THR2PTCH,0
+# feed roll into pitch
+PTCH2SRV_RLL,1
+# feed aileron into rudder
+KFF_RDDRMIX,0.5
+#
+# PID-FFs
+# roll
+RLL_RATE_P,0.08
+RLL_RATE_I,0.15
+RLL_RATE_IMAX,0.666
+RLL_RATE_D,0
+RLL_RATE_FF,0.345
+RLL_RATE_FLTT,3
+RLL_RATE_FLTE,0
+RLL_RATE_FLTD,12
+RLL_RATE_SMAX,150
+RLL_RATE_PDMX,0
+RLL_RATE_D_FF,0
+RLL_RATE_NTF,0
+RLL_RATE_NEF,0
+# pitch
+PTCH_RATE_P,0.04
+PTCH_RATE_I,0.15
+PTCH_RATE_IMAX,0.666
+PTCH_RATE_D,0
+PTCH_RATE_FF,0.345
+PTCH_RATE_FLTT,3
+PTCH_RATE_FLTE,0
+PTCH_RATE_FLTD,12
+PTCH_RATE_SMAX,150
+PTCH_RATE_PDMX,0
+PTCH_RATE_D_FF,0
+PTCH_RATE_NTF,0
+PTCH_RATE_NEF,0
+#
+# yaw damper
+YAW2SRV_DAMP,0
+YAW2SRV_RLL,1
+YAW2SRV_IMAX,1500
+# sideslip controller
+YAW2SRV_SLIP,0
+YAW2SRV_INT,0
+YAW2SRV_IMAX,1500
+#
+##########
+# FBWB
+#
+# tecs
+#
+##########
+# Navigation
+#
+#

@@ -1,0 +1,141 @@
+# config.param: settigns that reflect choices one makes on the bench
+#
+# Blaze - simple elevon DF fying wing
+# MatekSys H743-WLITE
+# Arduplane 4.6.3
+#
+SYSID_THISMAV,32
+#
+# LUA Scripting
+SCR_ENABLE,0
+#
+# 0=default
+AHRS_ORIENTATION,0
+# "Offset in degrees used for in-flight pitch trimming for level flight. Correct ground leveling is an alternative to changing this parameter."
+PTCH_TRIM_DEG,0
+# "X position of the first IMU Accelerometer in body frame. Positive X is forward of the origin."
+INS_POS1_X,0.15
+INS_POS1_Y,0
+INS_POS1_Z,0
+#
+# INPUTS
+#
+# serial ports
+# USB console
+SERIAL0_PROTOCOL,2
+# ESP8266 wifi telemetry (UART7) (runs off 3.3V bus)
+SERIAL1_PROTOCOL,2
+SERIAL1_BAUD,921
+SERIAL1_OPTIONS,0
+# TF-Luna rangefinder (USART1) (runs off 5V bus)
+SERIAL2_PROTOCOL,9
+SERIAL2_BAUD,115
+SERIAL2_OPTIONS,0
+RNGFND1_TYPE,20
+#RNGFND1_MIN_CM,20
+#RNGFND1_MAX_CM,700
+# 25=down
+RNGFND1_ORIENT,25
+RNGFND1_POS_X,0.1
+RNGFND1_POS_Y,0.065
+RNGFND1_POS_Z,0
+# measurements 3cm; valid range 5-127cm
+#RNGFND1_GNDCLEAR,3
+# GPS (USART1, default)
+SERIAL3_PROTOCOL,5
+SERIAL3_OPTIONS,0
+# FrSky telemetry with onboard inverter (options=7) (UART3)
+# (next to UART6 RCIN)
+SERIAL4_PROTOCOL,10
+SERIAL4_OPTIONS,7
+# (UART8, next to USART1)
+SERIAL5_PROTOCOL,-1
+# (UART4, Rx4 in S1/S2, Tx4 on test point)
+SERIAL6_PROTOCOL,-1
+# RCIN (UART6, default)
+SERIAL7_PROTOCOL,23
+SERIAL7_OPTIONS,0
+#
+# battery--analog, voltage & current
+BATT_MONITOR,4
+BATT_VOLT_PIN,10
+BATT_VOLT_MULT,21
+BATT_CURR_PIN,11
+BATT_AMP_PERVLT,66.7
+BATT_CAPACITY,2200
+#
+# airspeed: none
+ARSPD_TYPE,0
+#
+# expo in manual and acro mode:
+MAN_EXPO_ROLL,50
+MAN_EXPO_PITCH,50
+MAN_EXPO_RUDDER,20
+#
+# OUTPUT
+# [B]DShot300 on channel 1, 
+SERVO_BLH_MASK,1
+SERVO_BLH_BDMASK,1
+SERVO_BLH_OTYPE,5
+# telemetry type: BLHeli32/AM32/Kiss+EDT
+SERVO_DSHOT_ESC,3
+# throttle (S1 and S2 are setup for throttle on this board)
+SERVO1_FUNCTION,70
+SERVO1_MAX,2000
+SERVO1_TRIM,1000
+SERVO1_MIN,1000
+SERVO1_REVERSED,0
+# feed esc telemetry into RPMx
+RPM1_TYPE,5
+RPM1_ESC_MASK,1
+# noting here
+SERVO2_FUNCTION,0
+# left elevon (wire routing & length dictates using closest position)
+SERVO3_FUNCTION,77
+SERVO3_MAX,1900
+SERVO3_TRIM,1500
+SERVO3_MIN,1100
+SERVO3_REVERSED,0
+# right elevon
+SERVO4_FUNCTION,78
+SERVO4_MAX,1900
+SERVO4_TRIM,1500
+SERVO4_MIN,1100
+SERVO4_REVERSED,1
+#
+# FLIGHT MODES
+#
+FLTMODE1,0
+FLTMODE2,5
+FLTMODE3,6
+FLTMODE4,6
+FLTMODE5,1
+FLTMODE6,11
+#
+# FLIGHT MODE POLICIES
+#
+# FBWA
+AUTOTUNE_LEVEL,6
+# allow full roll demand at any airspeed
+STALL_PREVENTION,0
+#
+# FBWB
+#
+#
+# AUTO
+# stick inputs active in auto modes
+STICK_MIXING,1
+#
+TERRAIN_ENABLE,0
+WP_LOITER_RAD,30
+WP_MAX_RADIUS,0
+WP_RADIUS,90
+#
+# RTL
+#RALLY_INCL_HOME,0
+RALLY_LIMIT_KM,0.5
+RTL_AUTOLAND,0
+RTL_CLIMB_MIN,0
+RTL_RADIUS,0
+# altitude target for RTL (cm)
+RTL_ALTITUDE,100
