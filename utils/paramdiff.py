@@ -6,7 +6,17 @@ import tempfile
 import subprocess
 import pytest
 import argparse
+import os.path
 import sys
+
+class Params(dict):
+    def __init__(self, name):
+        self.name = name
+def test_Params():
+    p = Params("name")
+    p[1] = "1"
+    assert p.name == "name"
+    assert p[1] == "1"
 
 def parse_param_line(l, n):
     head = l.rstrip("\r\n")
@@ -73,39 +83,39 @@ def write_param_line(f, param_name, value):
     return f.write(param_name + "," + str_value(value) + "\r\n")
     
 def params_from_param_file(f):
-    params = {}
+    params = Params(os.path.basename(f.name))
     for n, l in enumerate(f.readlines(), 1):
         p, nv = parse_param_line(l, n)
         if p:
             params[p] = nv
     return params
 
-def params_from_log_file(f):
-    log = mavutil.mavlink_connection(f)
-    params = {}
+def params_from_log_file(fp):
+    log = mavutil.mavlink_connection(fp)
+    params = Params(os.path.basename(fp))
     while (msg := log.recv_match(type="PARAM_VALUE")):
         params[msg.param_id] = msg.param_value
     return params
 
-def diff_params(local, master):
-    with tempfile.NamedTemporaryFile("w") as local_f, tempfile.NamedTemporaryFile("w") as master_f:
+def diff_params(local, remote):
+    with tempfile.NamedTemporaryFile("w") as local_f, tempfile.NamedTemporaryFile("w") as remote_f:
         for p, v in local.items():
             write_param_line(local_f, p, v)
             try:
-                master_v = master[p]
-                write_param_line(master_f, p, master_v)
+                remote_v = remote[p]
+                write_param_line(remote_f, p, remote_v)
             except KeyError:
                 # parameter present in local, absent in remote
                 #
                 # printing an empty line instead of skipping the
                 # parameter altogether helps side-by-side diff(1)
                 # associate relevant lines in remove and local
-                master_f.write("\r\n")
+                remote_f.write("\r\n")
         local_f.flush()
-        master_f.flush()
-        print(f"{'local':<30}  log")
-        subprocess.run(args=["diff", "-d", "--side-by-side", "-W60", "--suppress-common-lines", local_f.file.name, master_f.file.name])
-        #subprocess.run(args=["diff", "-u0", "--color", "--label", "master", "--label", "local", master_f.file.name, local_f.file.name])
+        remote_f.flush()
+        print(f"{local.name:<30}  {remote.name}")
+        subprocess.run(args=["diff", "-d", "--side-by-side", "-W60", "--suppress-common-lines", local_f.file.name, remote_f.file.name])
+        #subprocess.run(args=["diff", "-u0", "--color", "--label", "remote", "--label", "local", remote_f.file.name, local_f.file.name])
 
 
 if __name__ == "__main__":
