@@ -1,22 +1,45 @@
 
-# paramsdiff.py: compare ArduPilot param file to another param file, log file or live MAVLink connection
+# paramsdiff.py: compare ArduPilot param file in MissionPlanner format to another param file, log file or live MAVLink connection
 
 from pymavlink import mavutil
-import tempfile
-import subprocess
+import functools
 import pytest
 import argparse
+import math
 import os.path
 import sys
 
+
 class Params(dict):
+    """A dictionary of parsed parameters, with a name and can diff against another instance"""
+    ABS_TOL = 0.000001
     def __init__(self, name):
         self.name = name
+    def longest_p_len(self):
+        return max(map(len, self.keys()))
+    def longest_v_len(self):
+        return max(map(len, map(str_value, self.values())))
+    def print_diff(self, other):
+        diff = Params(None)
+        for p, v in self.items():
+            try:
+                if not math.isclose(v, other[p], abs_tol=self.ABS_TOL):
+                    diff[p] = v
+            except KeyError:
+                diff[p] = v
+        if diff:
+            print(f"   {self.name:>{diff.longest_p_len()+diff.longest_v_len()}} | {other.name}")
+        for p, v in diff.items():
+            print(f"{p:<{diff.longest_p_len()}} = {str_value(self[p]):<{self.longest_v_len()}} | {str_value(other[p])}")
 def test_Params():
-    p = Params("name")
-    p[1] = "1"
-    assert p.name == "name"
-    assert p[1] == "1"
+    p = Params("local")
+    p["a"] = 1
+    p["ab"] = 123
+    p["b"] = 2
+    assert p.name == "local"
+    assert p["a"] == 1
+    assert p.longest_p_len() == 2
+    assert p.longest_v_len() == 3
 
 def parse_param_line(l, n):
     head = l.rstrip("\r\n")
@@ -31,15 +54,18 @@ def parse_param_line(l, n):
         raise ValueError(f"expecting 'PARAM,VALUE', found '{head}' (line {n})") from None
     if p.strip() != p or v.strip() != v:
         raise ValueError(f"unexpected whitespace in '{head}' (line {n})")
+    # All values are numeric; Parameters have types (signed and
+    # unsigned ints of various widths, floats). MissionPlanner ignores
+    # these types when writing parameters to files; it writes them
+    # with or without a decimal point depending on values rather than
+    # types. Type information is lost in MP files. Consequently, there
+    # is no advantage in trying to deduce type from format, and I
+    # treat all values as floats.
     try:
-        nv = int(v)
+        nv = float(v)
     except ValueError as e:
-        try:
-            nv = float(v)
-        except ValueError as e:
-            raise ValueError(f"expecting numeric value, found '{v}' (line {n})") from None
+        raise ValueError(f"expecting numeric value, found '{v}' (line {n})") from None
     return p, nv
-
 def test_parse_param_line():
     assert parse_param_line("FOO,100", 0) == ("FOO", 100)
     assert parse_param_line("FOO,100.5", 0) == ("FOO", 100.5)
@@ -73,7 +99,6 @@ def str_value(v):
     # with or without a decimal point depending on values rather than
     # types.
     return f"{v:g}"
-
 def test_str_value():
     assert str_value(0) == "0"
     assert str_value(0.0) == "0"
@@ -97,26 +122,6 @@ def params_from_log_file(fp):
         params[msg.param_id] = msg.param_value
     return params
 
-def diff_params(local, remote):
-    with tempfile.NamedTemporaryFile("w") as local_f, tempfile.NamedTemporaryFile("w") as remote_f:
-        for p, v in local.items():
-            write_param_line(local_f, p, v)
-            try:
-                remote_v = remote[p]
-                write_param_line(remote_f, p, remote_v)
-            except KeyError:
-                # parameter present in local, absent in remote
-                #
-                # printing an empty line instead of skipping the
-                # parameter altogether helps side-by-side diff(1)
-                # associate relevant lines in remove and local
-                remote_f.write("\r\n")
-        local_f.flush()
-        remote_f.flush()
-        print(f"{local.name:<30}  {remote.name}")
-        subprocess.run(args=["diff", "-d", "--side-by-side", "-W60", "--suppress-common-lines", local_f.file.name, remote_f.file.name])
-        #subprocess.run(args=["diff", "-u0", "--color", "--label", "remote", "--label", "local", remote_f.file.name, local_f.file.name])
-
 
 if __name__ == "__main__":
     argp = argparse.ArgumentParser()
@@ -124,5 +129,4 @@ if __name__ == "__main__":
     argp.add_argument("infile", type=argparse.FileType('r'))
     args = argp.parse_args()
 
-    diff_params(params_from_param_file(args.infile),
-                params_from_log_file(args.log))
+    params_from_param_file(args.infile).print_diff(params_from_log_file(args.log))
