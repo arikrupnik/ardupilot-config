@@ -159,6 +159,7 @@ def paramsf_from_filename(fn):
 def test_paramsf_from_filename():
     assert paramsf_from_filename("vehicle-params/32.blaze/tune.param").func == params_from_param_file
     assert paramsf_from_filename("logs/FIXED_WING/32/2026-02-07.tlog").func == params_from_log_file
+    assert paramsf_from_filename("/dev/ttyACM0").func == params_from_mavlink
 
 if __name__ == "__main__":
     argp = argparse.ArgumentParser()
