@@ -1,6 +1,11 @@
 
 # paramsdiff.py: compare ArduPilot param file in MissionPlanner format to another param file, log file or live MAVLink connection
 
+# TODO:
+# read params from live MAVLink connection
+# handle exceptions in main()
+# return 0 if no diff, 1 if diff, 2 if errors
+
 from pymavlink import mavutil
 import functools
 import pytest
