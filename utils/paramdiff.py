@@ -107,26 +107,43 @@ def test_str_value():
 def write_param_line(f, param_name, value):
     return f.write(param_name + "," + str_value(value) + "\r\n")
     
-def params_from_param_file(f):
-    params = Params(os.path.basename(f.name))
-    for n, l in enumerate(f.readlines(), 1):
-        p, nv = parse_param_line(l, n)
-        if p:
-            params[p] = nv
-    return params
+def params_from_param_file(fn):
+    with open(fn) as f:
+        params = Params(os.path.basename(f.name))
+        for n, l in enumerate(f.readlines(), 1):
+            p, nv = parse_param_line(l, n)
+            if p:
+                params[p] = nv
+        return params
 
-def params_from_log_file(fp):
-    log = mavutil.mavlink_connection(fp)
-    params = Params(os.path.basename(fp))
+def params_from_log_file(fn):
+    log = mavutil.mavlink_connection(fn)
+    params = Params(os.path.basename(fn))
     while (msg := log.recv_match(type="PARAM_VALUE")):
         params[msg.param_id] = msg.param_value
     return params
 
+def params_from_mavlink(fn):
+    # TODO
+    pass
+
+def paramsf_from_filename(fn):
+    _, ext = os.path.splitext(fn)
+    if ext.lower() in [".param", ".params"]:
+        f = params_from_param_file
+    elif ext.lower() in [".bin", ".log", ".tlog", ".rlog"]:
+        f = params_from_log_file
+    else:
+        f = params_from_mavlink
+    return functools.partial(f, fn)
+def test_paramsf_from_filename():
+    assert paramsf_from_filename("vehicle-params/32.blaze/tune.param").func == params_from_param_file
+    assert paramsf_from_filename("logs/FIXED_WING/32/2026-02-07.tlog").func == params_from_log_file
 
 if __name__ == "__main__":
     argp = argparse.ArgumentParser()
-    argp.add_argument("-l", "--log", required=True)
-    argp.add_argument("infile", type=argparse.FileType('r'))
+    argp.add_argument("local")
+    argp.add_argument("remote")
     args = argp.parse_args()
-
-    params_from_param_file(args.infile).print_diff(params_from_log_file(args.log))
+    local, remote = map(lambda fn: paramsf_from_filename(fn)(), [args.local, args.remote])
+    local.print_diff(remote)
