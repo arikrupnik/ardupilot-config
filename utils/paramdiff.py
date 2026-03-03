@@ -22,15 +22,15 @@ class Params(dict):
     def print_diff(self, other):
         diff = Params(None)
         for p, v in self.items():
-            try:
-                if not math.isclose(v, other[p], abs_tol=self.ABS_TOL):
-                    diff[p] = v
-            except KeyError:
+            if not math.isclose(v, other.get(p, math.nan), abs_tol=self.ABS_TOL):
                 diff[p] = v
         if diff:
-            print(f"   {self.name:>{diff.longest_p_len()+diff.longest_v_len()}} | {other.name}")
+            print(f"   {self.name:>{diff.longest_p_len()+diff.longest_v_len()}} | "
+                  f"{other.name}")
         for p, v in diff.items():
-            print(f"{p:<{diff.longest_p_len()}} = {str_value(self[p]):<{self.longest_v_len()}} | {str_value(other[p])}")
+            print(f"{p:<{diff.longest_p_len()}} = "
+                  f"{str_value(self[p]):<{self.longest_v_len()}} | "
+                  f"{str_value(other.get(p), "")}")
 def test_Params():
     p = Params("local")
     p["a"] = 1
@@ -92,17 +92,22 @@ def test_parse_param_line():
         parse_param_line("FOO,string", 1)
     assert e.value.args[0] == "expecting numeric value, found 'string' (line 1)"
 
-def str_value(v):
+def str_value(v, none_replacement=None):
     # All values are numeric; Parameters have types (signed and
     # unsigned ints of various widths, floats). MissionPlanner ignores
     # these types when writing parameters to files; it writes them
     # with or without a decimal point depending on values rather than
     # types.
+    if v is None and none_replacement is not None:
+        return none_replacement
     return f"{v:g}"
 def test_str_value():
     assert str_value(0) == "0"
     assert str_value(0.0) == "0"
     assert str_value(0.1) == "0.1"
+    with pytest.raises(TypeError):
+        assert str_value(None)
+    assert str_value(None, "") == ""
 
 def write_param_line(f, param_name, value):
     return f.write(param_name + "," + str_value(value) + "\r\n")
