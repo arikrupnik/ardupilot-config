@@ -2,7 +2,6 @@
 # paramsdiff.py: compare ArduPilot param file in MissionPlanner format to another param file, log file or live MAVLink connection
 
 # TODO:
-# read params from live MAVLink connection
 # handle exceptions in main()
 # return 0 if no diff, 1 if diff, 2 if errors
 
@@ -17,7 +16,7 @@ import sys
 
 class Params(dict):
     """A dictionary of parsed parameters, with a name and can diff against another instance"""
-    ABS_TOL = 0.000001
+    ABS_TOL = 0.00001
     def __init__(self, name):
         self.name = name
     def longest_p_len(self):
@@ -134,8 +133,19 @@ def params_from_log_file(fn):
     return params
 
 def params_from_mavlink(fn):
-    # TODO
-    pass
+    remote = mavutil.mavlink_connection(fn)
+    params = Params(fn)
+    remote.wait_heartbeat()
+    remote.mav.param_request_list_send(remote.target_system,
+                                       remote.target_component)
+    while (msg := remote.recv_match(type='PARAM_VALUE', blocking=True, timeout=1)):
+        params[msg.param_id] = msg.param_value
+        if not (msg.param_index % 100):
+            print(f"{msg.param_index}/{msg.param_count}", end="\r", file=sys.stderr)
+        if msg.param_index == msg.param_count-1:
+            print(" "*25, end="\r", file=sys.stderr)
+            return params
+    raise ValueError("timeout")
 
 def paramsf_from_filename(fn):
     _, ext = os.path.splitext(fn)
