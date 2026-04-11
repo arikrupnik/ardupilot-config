@@ -5,7 +5,7 @@
 #
 # limits
 # roll
-ROLL_LIMIT_DEG,45
+ROLL_LIMIT_DEG,60
 RLL2SRV_RMAX,0
 RLL2SRV_TCONST,0.5
 # pitch
