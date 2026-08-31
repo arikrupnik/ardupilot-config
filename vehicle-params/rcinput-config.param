@@ -48,7 +48,7 @@ ARMING_RUDDER,0
 # with reliable (dis)arming, stop logging on disarm
 LOG_FILE_DSRMROT,1
 # require all arming checks
-ARMING_CHECK,1
+ARMING_SKIPCHK,0
 # "Arming check throttle for 0 input"
 RC_OPTIONS,32
 # disable safety button, missing or inaccessible in many installations; using locking arming switch on TX instead
