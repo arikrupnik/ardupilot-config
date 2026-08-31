@@ -27,7 +27,7 @@ SERIAL0_PROTOCOL,2
 SERIAL1_PROTOCOL,2
 SERIAL1_BAUD,921
 SERIAL1_OPTIONS,0
-# TF-Luna rangefinder (USART1) (runs off 5V bus)
+# TF-Luna rangefinder (USART1, next to S2) (runs off 5V bus)
 SERIAL2_PROTOCOL,9
 SERIAL2_BAUD,115
 SERIAL2_OPTIONS,0
@@ -41,20 +41,22 @@ RNGFND1_POS_Y,0.065
 RNGFND1_POS_Z,0
 # measurements 3cm; valid range 5-127cm
 #RNGFND1_GNDCLEAR,3
-# GPS (USART1, default)
+# GPS (USART2, default)
 SERIAL3_PROTOCOL,5
 SERIAL3_OPTIONS,0
 # FrSky telemetry with onboard inverter (options=7) (UART3)
-# (next to UART6 RCIN)
+# (USART3 next to UART6 RCIN)
 SERIAL4_PROTOCOL,10
 SERIAL4_OPTIONS,7
-# (UART8, next to USART1)
+# (UART8, next to S11)
 SERIAL5_PROTOCOL,-1
 # (UART4, Rx4 in S1/S2, Tx4 on test point)
 SERIAL6_PROTOCOL,-1
 # RCIN (UART6, default)
 SERIAL7_PROTOCOL,23
 SERIAL7_OPTIONS,0
+# use full SERIAL7 port
+BRD_ALT_CONFIG,1
 #
 # battery--analog, voltage & current
 BATT_MONITOR,4
