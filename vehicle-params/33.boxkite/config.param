@@ -1,0 +1,140 @@
+# config.param: settigns that reflect choices one makes on the bench
+#
+# Boxkite: tailsitter quadplane biplane
+# MatekSys H743-WLITE
+# Arduplane 4.7.0
+#
+MAV_SYSID,33
+#
+# LUA Scripting
+SCR_ENABLE,0
+#
+# QPlane
+Q_ENABLE,1
+# tailsitter
+Q_TAILSIT_ENABLE,1
+# quad
+Q_FRAME_CLASS,1
+# x frame (DJI) (wiring considerations dictate this otherwise unusual choice)
+Q_FRAME_TYPE,13
+# all lifter motors active in fixed-wing mode
+Q_TAILSIT_MOTMX,15
+#
+# Pitch180Roll270
+AHRS_ORIENTATION,32
+## "Offset in degrees used for in-flight pitch trimming for level flight. Correct ground leveling is an alternative to changing this parameter."
+#PTCH_TRIM_DEG,0
+## "X position of the first IMU Accelerometer in body frame. Positive X is forward of the origin."
+#INS_POS1_X,0.15
+#INS_POS1_Y,0
+#INS_POS1_Z,0
+#
+# INPUTS
+#
+# serial ports
+# USB console
+SERIAL0_PROTOCOL,2
+# (UART7, default: TELEM1)
+SERIAL1_PROTOCOL,-1
+# (USART1, next to S2)
+SERIAL2_PROTOCOL,-1
+# GPS (USART2, default)
+SERIAL3_PROTOCOL,5
+SERIAL3_OPTIONS,0
+# (USART3, next to UART6 RCIN)
+SERIAL4_PROTOCOL,-1
+# (UART8, next to S1)
+SERIAL5_PROTOCOL,-1
+# (UART4, Rx4 in S1/S2, Tx4 on test point)
+SERIAL6_PROTOCOL,-1
+# ELRS RC+TELEM (UART6, default: RCIN)
+SERIAL7_PROTOCOL,2
+SERIAL7_BAUD,460
+# use full SERIAL7 port
+BRD_ALT_CONFIG,1
+#
+# battery--analog, voltage & current
+BATT_MONITOR,4
+BATT_VOLT_PIN,10
+BATT_VOLT_MULT,21
+BATT_CURR_PIN,11
+BATT_AMP_PERVLT,66.7
+BATT_CAPACITY,2200
+#
+# airspeed: none
+ARSPD_TYPE,0
+#
+# OUTPUTS
+#SERVO_BLH_OTYPE,5
+# [B]DShot600 on lifter motors
+Q_M_PWM_TYPE,6
+# telemetry type: BLHeli32/AM32/Kiss+EDT
+SERVO_DSHOT_ESC,3
+# bitmask of bi-directional dshot channels: all four ESCs
+SERVO_BLH_BDMASK,15
+# Motor1 (A), front/bottom right, CCW
+SERVO1_FUNCTION,33
+# Motor2 (C), rear/top     left,  CCW
+SERVO2_FUNCTION,34
+# Motor3 (D), front/bottom left,   CW
+SERVO3_FUNCTION,35
+# Motor4 (B), back/top     right,  CW
+SERVO4_FUNCTION,36
+# all four motors ended up with wiring for reverse rotation
+SERVO_BLH_RVMASK,15
+#
+# SERVO5/6 are part of the 3/4/5/6 Dshot group; skip them
+SERVO5_FUNCTION,0
+SERVO6_FUNCTION,0
+#
+# top right elevon
+SERVO7_FUNCTION,78
+SERVO7_MAX,1900
+SERVO7_TRIM,1700
+SERVO7_MIN,1100
+SERVO7_REVERSED,1
+# top left elevon
+SERVO8_FUNCTION,77
+SERVO8_MAX,1900
+SERVO8_TRIM,1300
+SERVO8_MIN,1100
+SERVO8_REVERSED,0
+# bottom right elevon
+SERVO9_FUNCTION,78
+SERVO9_MAX,1900
+SERVO9_TRIM,1700
+SERVO9_MIN,1100
+SERVO9_REVERSED,1
+# bottom left elevon
+SERVO10_FUNCTION,77
+SERVO10_MAX,1900
+SERVO10_TRIM,1300
+SERVO10_MIN,1100
+SERVO10_REVERSED,0
+#
+# FBWA
+AUTOTUNE_LEVEL,6
+# allow full roll demand at any airspeed
+STALL_PREVENTION,0
+#
+# FBWB
+#
+#
+# AUTO
+# stick inputs active in auto modes
+STICK_MIXING,1
+#
+TERRAIN_ENABLE,0
+WP_LOITER_RAD,30
+WP_MAX_RADIUS,0
+WP_RADIUS,90
+#
+## RTL
+##RALLY_INCL_HOME,0
+#RALLY_LIMIT_KM,0.5
+#RTL_AUTOLAND,0
+#RTL_CLIMB_MIN,0
+## "If this is zero then WP_LOITER_RAD is used."
+#RTL_RADIUS,0
+## altitude target for RTL (cm?)
+#RTL_ALTITUDE,100
