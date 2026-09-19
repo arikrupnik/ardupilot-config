@@ -15,8 +15,8 @@ Q_ENABLE,1
 Q_TAILSIT_ENABLE,1
 # quad
 Q_FRAME_CLASS,1
-# x frame (DJI) (wiring considerations dictate this otherwise unusual choice)
-Q_FRAME_TYPE,13
+# X frame
+Q_FRAME_TYPE,1
 # all lifter motors active in fixed-wing mode
 Q_TAILSIT_MOTMX,15
 # The airframe is incapabe of RoG takeoff: "ARMVTOL-arm only in VTOL modes (or AUTO mode when current nav cmd is VTOL Takeoff)"
@@ -74,14 +74,14 @@ Q_M_PWM_TYPE,6
 SERVO_DSHOT_ESC,3
 # bitmask of bi-directional dshot channels: all four ESCs
 SERVO_BLH_BDMASK,15
-# Motor1 (A), front/bottom right, CCW
-SERVO1_FUNCTION,33
 # Motor2 (C), rear/top     left,  CCW
-SERVO2_FUNCTION,34
-# Motor3 (D), front/bottom left,   CW
-SERVO3_FUNCTION,35
+SERVO1_FUNCTION,34
 # Motor4 (B), back/top     right,  CW
-SERVO4_FUNCTION,36
+SERVO2_FUNCTION,36
+# Motor1 (A), front/bottom right, CCW
+SERVO3_FUNCTION,33
+# Motor3 (D), front/bottom left,   CW
+SERVO4_FUNCTION,35
 # all four motors ended up with wiring for reverse rotation
 SERVO_BLH_RVMASK,15
 #
