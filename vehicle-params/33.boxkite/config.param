@@ -74,6 +74,8 @@ Q_M_PWM_TYPE,6
 SERVO_DSHOT_ESC,3
 # bitmask of bi-directional dshot channels: all four ESCs
 SERVO_BLH_BDMASK,15
+# AM32 serial pass-thru auto-enable
+SERVO_BLH_AUTO,1
 # Motor2 (C), rear/top     left,  CCW
 SERVO1_FUNCTION,34
 # Motor4 (B), back/top     right,  CW
