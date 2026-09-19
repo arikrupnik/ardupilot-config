@@ -19,6 +19,8 @@ Q_FRAME_CLASS,1
 Q_FRAME_TYPE,13
 # all lifter motors active in fixed-wing mode
 Q_TAILSIT_MOTMX,15
+# The airframe is incapabe of RoG takeoff: "ARMVTOL-arm only in VTOL modes (or AUTO mode when current nav cmd is VTOL Takeoff)"
+Q_OPTIONS,262144
 #
 # Pitch180Roll270
 AHRS_ORIENTATION,32
