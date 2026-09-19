@@ -114,6 +114,8 @@ SERVO10_REVERSED,0
 #
 # FBWA
 AUTOTUNE_LEVEL,6
+# estimate of level-flight AoA for KF2 airfoil and draggy airframe
+PTCH_TRIM_DEG,5
 # allow full roll demand at any airspeed
 STALL_PREVENTION,0
 #
