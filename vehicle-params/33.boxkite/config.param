@@ -9,7 +9,17 @@ MAV_SYSID,33
 # LUA Scripting
 SCR_ENABLE,0
 #
-# QPlane
+# IMU installation
+# Pitch180Roll270
+AHRS_ORIENTATION,32
+# "X position of the first IMU Accelerometer in body frame. Positive X is forward of the origin."
+INS_POS1_X,0.02
+# "Y position of the first IMU accelerometer in body frame. Positive Y is to the right of the origin."
+INS_POS1_Y,0.01
+# "Z position of the first IMU accelerometer in body frame. Positive Z is down from the origin."
+INS_POS1_Z,0
+#
+# QPlane configuration
 Q_ENABLE,1
 # tailsitter
 Q_TAILSIT_ENABLE,1
@@ -21,15 +31,6 @@ Q_FRAME_TYPE,1
 Q_TAILSIT_MOTMX,15
 # The airframe is incapabe of RoG takeoff: "ARMVTOL-arm only in VTOL modes (or AUTO mode when current nav cmd is VTOL Takeoff)"
 Q_OPTIONS,262144
-#
-# Pitch180Roll270
-AHRS_ORIENTATION,32
-## "Offset in degrees used for in-flight pitch trimming for level flight. Correct ground leveling is an alternative to changing this parameter."
-#PTCH_TRIM_DEG,0
-## "X position of the first IMU Accelerometer in body frame. Positive X is forward of the origin."
-#INS_POS1_X,0.15
-#INS_POS1_Y,0
-#INS_POS1_Z,0
 #
 # INPUTS
 #
