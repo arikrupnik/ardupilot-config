@@ -199,3 +199,15 @@ WP_RADIUS,90
 #RTL_RADIUS,0
 ## altitude target for RTL (cm?)
 #RTL_ALTITUDE,100
+#
+#
+# Temporary settings for tuning; I spell default values here which disable the features, as a reminder to revert after tuning
+#
+# "automatic learning of hover throttle"
+Q_M_HOVER_LEARN,0
+# raw IMU logging for notch filter calculation
+INS_RAW_LOG_OPT,0
+# "Scale from PID output to control surface, for use where a single axis is actuated by both motors and Tilt/control surface on a copter style tailsitter, increase to favor control surfaces and reduce motor output by reducing gains": I set to 0 for QWIK_TUNE, then AUTOTUNE fixed-wing mode, then decide what blend works best
+Q_TAILSIT_VT_R_P,1
+Q_TAILSIT_VT_P_P,1
+Q_TAILSIT_VT_Y_P,1
