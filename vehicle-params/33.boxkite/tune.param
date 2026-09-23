@@ -1,0 +1,134 @@
+# tune.param: parameters that reflect real-world performance of the vehicle
+#
+##########
+# QPlane
+#
+Q_A_INPUT_TC,0.15
+# max lean angle
+Q_A_ANGLE_MAX,30
+# angle-to-rate controllers
+Q_A_ANG_RLL_P,4.5
+Q_A_ANG_PIT_P,4.5
+Q_A_ANG_YAW_P,4.5
+Q_A_ANG_LIM_TC,1
+# limits on rate demands
+Q_A_RATE_R_MAX,75
+Q_A_RATE_P_MAX,75
+Q_A_RATE_Y_MAX,75
+Q_A_RATE_FF_ENAB,1
+Q_A_RATE_WPY_MAX,60
+# rate controller: roll
+Q_A_RAT_RLL_P,0.25
+Q_A_RAT_RLL_I,0.25
+Q_A_RAT_RLL_D,0.0036
+Q_A_RAT_RLL_FF,0
+Q_A_RAT_RLL_D_FF,0
+Q_A_RAT_RLL_IMAX,0.5
+Q_A_RAT_RLL_PDMX,0
+Q_A_RAT_RLL_SMAX,50
+# rate controller: pitch
+Q_A_RAT_PIT_P,0.25
+Q_A_RAT_PIT_I,0.25
+Q_A_RAT_PIT_D,0.0036
+Q_A_RAT_PIT_FF,0
+Q_A_RAT_PIT_D_FF,0
+Q_A_RAT_PIT_IMAX,0.5
+Q_A_RAT_PIT_PDMX,0
+Q_A_RAT_PIT_SMAX,50
+# rate controller: yaw
+Q_A_RAT_YAW_P,0.18
+Q_A_RAT_YAW_I,0.018
+Q_A_RAT_YAW_D,0
+Q_A_RAT_YAW_FF,0
+Q_A_RAT_YAW_D_FF,0
+Q_A_RAT_YAW_IMAX,0.5
+Q_A_RAT_YAW_PDMX,0
+Q_A_RAT_YAW_SMAX,50
+# "throttle vs attitude (higher values mean we prioritise attitude control over throttle)"
+Q_A_THR_MIX_MAX,0.5
+Q_A_THR_MIX_MIN,0.1
+Q_A_THR_MIX_MAN,0.1
+# "Throttle-gain boost ratio [..] that is applied to angle P and PD on pitch and roll."
+Q_A_THR_G_BOOST,0
+Q_A_ANGLE_BOOST,1
+# "gain multiplier[s] active when landed"
+Q_A_LAND_P_MULT,1
+Q_A_LAND_R_MULT,1
+Q_A_LAND_Y_MULT,1
+#
+##########
+# FBWA
+#
+# limits
+# roll
+ROLL_LIMIT_DEG,45
+RLL2SRV_RMAX,0
+RLL2SRV_TCONST,0.5
+# pitch
+PTCH_LIM_MAX_DEG,20
+PTCH_LIM_MIN_DEG,-25
+PTCH2SRV_RMAX_DN,0
+PTCH2SRV_RMAX_UP,0
+PTCH2SRV_TCONST,0.5
+#
+# feed-forwards
+# "Degrees of down pitch added when throttle is below TRIM_THROTTLE"
+STAB_PITCH_DOWN,2
+# "Pitch up to add in proportion to throttle. 100% throttle will add this number of degrees to the pitch target."
+KFF_THR2PTCH,0
+# feed roll into pitch
+PTCH2SRV_RLL,1
+# feed aileron into rudder
+KFF_RDDRMIX,0.5
+#
+# PID-FFs
+# roll
+RLL_RATE_P,0.08
+RLL_RATE_I,0.15
+RLL_RATE_D,0
+RLL_RATE_FF,0.345
+RLL_RATE_D_FF,0
+RLL_RATE_IMAX,0.666
+RLL_RATE_PDMX,0
+RLL_RATE_SMAX,150
+RLL_RATE_FLTT,3
+RLL_RATE_FLTE,0
+RLL_RATE_FLTD,12
+# pitch
+PTCH_RATE_P,0.04
+PTCH_RATE_I,0.15
+PTCH_RATE_D,0
+PTCH_RATE_FF,0.345
+PTCH_RATE_D_FF,0
+PTCH_RATE_IMAX,0.666
+PTCH_RATE_PDMX,0
+PTCH_RATE_SMAX,150
+PTCH_RATE_FLTT,3
+PTCH_RATE_FLTE,0
+PTCH_RATE_FLTD,12
+#
+# yaw damper
+YAW2SRV_DAMP,0
+YAW2SRV_RLL,1
+YAW2SRV_IMAX,1500
+# sideslip controller
+YAW2SRV_SLIP,0
+YAW2SRV_INT,0
+YAW2SRV_IMAX,1500
+#
+##########
+# FBWB
+#
+# tecs
+#
+# airspeed targets
+AIRSPEED_MAX,22
+AIRSPEED_CRUISE,12
+AIRSPEED_MIN,9
+AIRSPEED_STALL,0
+TRIM_THROTTLE,45
+#
+##########
+# Navigation
+#
+#
