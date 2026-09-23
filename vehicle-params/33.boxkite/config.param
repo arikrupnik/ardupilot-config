@@ -21,6 +21,8 @@ INS_POS1_Z,0
 #
 # QPlane configuration
 Q_ENABLE,1
+# QPlane requires higher loop rate
+SCHED_LOOP_RATE,300
 # tailsitter
 Q_TAILSIT_ENABLE,1
 # quad
@@ -151,18 +153,20 @@ Q_M_THST_HOVER,0.35
 INS_ACCEL_FILTER,10
 INS_GYRO_FILTER,57
 #
-# "PID Controller Initial Setup"
-Q_A_ACC_P_MAX,1300
+# "PID Controller Initial Setup" from https://ardupilot.org/plane/docs/quadplane-vtol-tuning-process.html#step-3-pid-controller-initial-setup and the MissionPlanner "Initial Tune Parameters" page (only yaw FLTE is specified in setup recommendations; I move RLL_FLTE and PIT_FLTE here for completeness)
 Q_A_ACC_R_MAX,1300
+Q_A_ACC_P_MAX,1300
 Q_A_ACC_Y_MAX,300
-Q_A_RAT_PIT_FLTD,28.5
-Q_A_RAT_PIT_FLTT,28.5
-Q_A_RAT_RLL_FLTD,28.5
 Q_A_RAT_RLL_FLTT,28.5
+Q_A_RAT_RLL_FLTE,0
+Q_A_RAT_RLL_FLTD,28.5
+Q_A_RAT_PIT_FLTT,28.5
+Q_A_RAT_PIT_FLTE,0
+Q_A_RAT_PIT_FLTD,28.5
+Q_A_RAT_YAW_FLTT,28.5
 Q_A_RAT_YAW_FLTE,2
 # MP suggests RAT_YAW_FLTD=0
 Q_A_RAT_YAW_FLTD,28.5
-Q_A_RAT_YAW_FLTT,28.5
 #
 # scaling control surface response with disk theory
 Q_TAILSIT_GSCMSK,4
@@ -224,8 +228,8 @@ WP_RADIUS,90
 #
 # Copter QWIK TUNE enable
 QWIK_ENABLE,0
-# "automatic learning of hover throttle"
-Q_M_HOVER_LEARN,0
+# "automatic learning of hover throttle" defaults to learn and save
+Q_M_HOVER_LEARN,2
 # raw IMU logging for notch filter calculation
 INS_RAW_LOG_OPT,0
 # "Scale from PID output to control surface, for use where a single axis is actuated by both motors and Tilt/control surface on a copter style tailsitter, increase to favor control surfaces and reduce motor output by reducing gains": I set to 0 for QWIK_TUNE, then AUTOTUNE fixed-wing mode, then decide what blend works best
