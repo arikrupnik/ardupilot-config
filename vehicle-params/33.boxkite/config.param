@@ -209,6 +209,8 @@ WP_RADIUS,90
 #
 # Temporary settings for tuning; I spell default values here which disable the features, as a reminder to revert after tuning
 #
+# Copter QWIK TUNE enable
+QWIK_ENABLE,0
 # "automatic learning of hover throttle"
 Q_M_HOVER_LEARN,0
 # raw IMU logging for notch filter calculation
