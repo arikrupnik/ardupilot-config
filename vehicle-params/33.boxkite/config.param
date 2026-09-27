@@ -132,7 +132,7 @@ SERVO10_TRIM,1200
 SERVO10_MIN,870
 SERVO10_REVERSED,0
 #
-# Q tuning based on battery and prop size (5", but using 7" as proxy fror size)
+# Q tuning based on battery and prop size (5", but using 7" as proxy for size)
 # from https://ardupilot.org/copter/docs/setting-up-for-tuning.html
 # and Mission Planer InitialTune page
 #
