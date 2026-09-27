@@ -56,10 +56,10 @@ Q_A_RAT_PIT_D_FF,0
 Q_A_RAT_PIT_IMAX,0.5
 Q_A_RAT_PIT_PDMX,0
 Q_A_RAT_PIT_SMAX,50
-# rate controller: yaw
-Q_A_RAT_YAW_P,0.18
-Q_A_RAT_YAW_I,0.018
-Q_A_RAT_YAW_D,0
+# rate controller: yaw (QWUK_TUNE results equal to QWIK_YAW_*_MAX)
+Q_A_RAT_YAW_P,0.5
+Q_A_RAT_YAW_I,0.5
+Q_A_RAT_YAW_D,0.01
 Q_A_RAT_YAW_FF,0
 Q_A_RAT_YAW_D_FF,0
 Q_A_RAT_YAW_IMAX,0.5
